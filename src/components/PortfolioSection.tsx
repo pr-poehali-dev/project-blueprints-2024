@@ -1,87 +1,114 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { TrendingUp } from "lucide-react"
+import { useState } from "react"
+import { TrendingUp, ChevronLeft, ChevronRight } from "lucide-react"
 
 const projects = [
   {
     title: "Донской пар",
     category: "Reels-производство + SMM",
-    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/18ae2ae0-ecc7-4a10-9c35-27864c797e06.png",
-    description:
-      "Производство и строительство бань. Создали серию Reels с экспертом на площадке: один ролик набрал 734 тыс. просмотров. Общий охват роликов — более 1 миллиона просмотров. Темы: стоимость бани, виды бань, экспертные ответы на комменты.",
-    tags: ["Reels", "Instagram", "Экспертный контент", "Строительство"],
+    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/ae109b9a-b1ce-4384-8aa0-7ad07697cf3b.png",
     result: "734K просмотров",
+    stats: ["С 0 до 1000 подписчиков за 2 мес.", "1 000 000 просмотров за 2 мес.", "719 комментариев · 1920 сохранений"],
   },
   {
-    title: "Ресторан «Восток»",
-    category: "Reels-производство",
-    image: "/placeholder.jpg",
-    description:
-      "Создали 40 Reels за 2 месяца: рецепты, атмосфера кухни, закулисье. Один ролик набрал 800 тыс. просмотров и привёл 200+ новых гостей за неделю.",
-    tags: ["Reels", "Сторис", "ВКонтакте", "TikTok"],
-    result: "800K просмотров",
-  },
-  {
-    title: "Салон красоты Glam",
-    category: "SMM-стратегия + таргет",
-    image: "/placeholder.jpg",
-    description:
-      "Разработали стратегию продвижения, запустили таргет и ведение. За 4 месяца: 12 000 новых подписчиков, стоимость заявки снижена с 890 до 210 рублей.",
-    tags: ["SMM", "Таргет", "Instagram", "Брендинг"],
-    result: "Лид за 210 ₽",
-  },
-  {
-    title: "Онлайн-школа English+",
-    category: "Контент + воронка продаж",
-    image: "/placeholder.jpg",
-    description:
-      "Построили воронку через Reels и сторис: от холодной аудитории до покупки курса. Конверсия из подписчика в ученика выросла в 4 раза за 6 месяцев.",
-    tags: ["Воронка", "Reels", "Telegram", "Email"],
-    result: "×4 конверсия",
+    title: "АГРОштурман",
+    category: "Reels + YouTube Shorts",
+    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/cdeeece9-b68d-4da2-ab7d-2d6338d62dfd.jpg",
+    result: "932K просмотров",
+    stats: ["932 тыс. просмотров на одном Shorts", "162 тыс. и 87 тыс. — топовые ролики", "Вирусный контент об агробизнесе"],
   },
 ]
 
 export function PortfolioSection() {
+  const [current, setCurrent] = useState(0)
+
+  const prev = () => setCurrent((c) => (c - 1 + projects.length) % projects.length)
+  const next = () => setCurrent((c) => (c + 1) % projects.length)
+
+  const project = projects[current]
+
   return (
     <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Наши кейсы</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
+      <div className="container mx-auto max-w-5xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-balance">Наши кейсы</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Реальные результаты для реальных брендов. Цифры говорят сами за себя.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="group overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300"
-            >
-              <div className="relative overflow-hidden aspect-video bg-muted">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-sm font-bold flex items-center gap-1.5 shadow-lg">
-                  <TrendingUp className="h-3.5 w-3.5" />
-                  {project.result}
-                </div>
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          {/* Вертикальное фото */}
+          <div className="relative w-full md:w-[320px] flex-shrink-0">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl" style={{ aspectRatio: "9/16" }}>
+              <img
+                key={current}
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover object-top transition-opacity duration-500"
+              />
+              {/* Градиент снизу */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              {/* Бейдж результата */}
+              <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-sm font-bold flex items-center gap-1.5 shadow-lg">
+                <TrendingUp className="h-3.5 w-3.5" />
+                {project.result}
               </div>
-              <CardContent className="p-6">
-                <p className="text-sm text-primary font-semibold mb-2">{project.category}</p>
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
-                      {tag}
-                    </span>
-                  ))}
+              {/* Название внизу */}
+              <div className="absolute bottom-5 left-5">
+                <p className="text-xs text-white/70 font-medium mb-1">{project.category}</p>
+                <h3 className="text-2xl font-black text-white">{project.title}</h3>
+              </div>
+            </div>
+          </div>
+
+          {/* Правая часть */}
+          <div className="flex-1 flex flex-col gap-6">
+            {/* Статы */}
+            <div className="space-y-4">
+              {project.stats.map((stat, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 border border-border"
+                >
+                  <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                  <p className="font-semibold text-base">{stat}</p>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+
+            {/* Навигация */}
+            <div className="flex items-center gap-4 mt-2">
+              <button
+                onClick={prev}
+                className="w-12 h-12 rounded-full border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all"
+              >
+                <ChevronLeft className="h-5 w-5 text-primary" />
+              </button>
+
+              <div className="flex gap-2">
+                {projects.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === current ? "w-8 bg-primary" : "w-2 bg-primary/30"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={next}
+                className="w-12 h-12 rounded-full border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all"
+              >
+                <ChevronRight className="h-5 w-5 text-primary" />
+              </button>
+
+              <span className="text-sm text-muted-foreground ml-2">
+                {current + 1} / {projects.length}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
