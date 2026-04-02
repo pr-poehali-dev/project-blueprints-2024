@@ -45,6 +45,18 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
+            <a
+              href="#portfolio"
+              className="hidden sm:inline-flex text-xs font-bold px-3 py-1.5 rounded-full border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+            >
+              SMM
+            </a>
+            <a
+              href="#portfolio"
+              className="hidden sm:inline-flex text-xs font-bold px-3 py-1.5 rounded-full border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+            >
+              REELS
+            </a>
             <ThemeToggle />
             <MobileMenu />
           </div>
