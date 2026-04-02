@@ -3,41 +3,49 @@ import Icon from "@/components/ui/icon"
 
 const services = [
   {
-    icon: "Play",
-    title: "Reels-производство",
+    icon: "Globe",
+    title: "Онлайн-проекты под ключ",
     description:
-      "Снимаем и монтируем Reels под ключ: сценарий, съёмка, монтаж, субтитры и обложки. Создаём ролики, которые набирают просмотры и привлекают новую аудиторию.",
+      "Создаём и запускаем полноценное онлайн-присутствие: от стратегии до первых результатов. Вы получаете готовую систему, которая работает на ваш рост.",
   },
   {
-    icon: "LayoutGrid",
-    title: "Ведение соцсетей",
+    icon: "Briefcase",
+    title: "Упаковка корпоративных профилей",
     description:
-      "Полное ведение Instagram, ВКонтакте и Telegram: контент-план, публикации, сторис, общение с аудиторией. Ваши соцсети живут и растут без вашего участия.",
+      "Оформляем и оптимизируем профили компании в соцсетях: визуал, описания, highlights, шаблоны. Профиль становится вашей лучшей визитной карточкой.",
   },
   {
-    icon: "TrendingUp",
-    title: "SMM-стратегия",
+    icon: "ShoppingBag",
+    title: "Контент, который продаёт",
     description:
-      "Разрабатываем стратегию присутствия бренда в соцсетях: позиционирование, рубрики, tone of voice и воронку от подписчика до клиента.",
-  },
-  {
-    icon: "Target",
-    title: "Таргетированная реклама",
-    description:
-      "Запускаем рекламу в Instagram и ВКонтакте: настройка аудиторий, создание креативов, тестирование связок и оптимизация для максимального ROI.",
+      "Создаём Reels, посты и сторис с продающими сценариями. Контент укрепляет экспертный статус и превращает подписчиков в клиентов.",
   },
   {
     icon: "BarChart2",
-    title: "Аналитика и отчётность",
+    title: "Анализ метрик и рост ROI",
     description:
-      "Еженедельные и ежемесячные отчёты: охваты, вовлечённость, рост подписчиков, стоимость лида. Прозрачно показываем, что работает, а что нужно улучшить.",
+      "Ежемесячная аналитика, отчёты и актуализация стратегии. Постоянно улучшаем показатели, чтобы каждый рубль инвестиций давал максимум.",
   },
   {
-    icon: "Sparkles",
-    title: "Брендинг для соцсетей",
+    icon: "PlusCircle",
+    title: "Запуск новых соцсетей и блогов",
     description:
-      "Создаём визуальный стиль для соцсетей: шаблоны сторис, обложки Reels, единую цветовую схему. Ваш профиль выглядит профессионально и запоминается.",
+      "Запускаем новые площадки с нуля: разрабатываем концепцию, упаковываем профиль, создаём контент и набираем аудиторию системно.",
   },
+  {
+    icon: "Users",
+    title: "Коллаборации и кросс-промо",
+    description:
+      "Организуем партнёрские коллаборации с блогерами, кросс-промо и рекламные стратегии. Эксклюзивные бонусы Premium: кастинг актёров, подбор локаций и реквизита.",
+  },
+]
+
+const whyUs = [
+  { icon: "Tv", text: "Телевизионная экспертиза" },
+  { icon: "LayoutDashboard", text: "Системный премиальный подход" },
+  { icon: "Users", text: "Команда профессионалов" },
+  { icon: "Layers", text: "Многоформатный контент" },
+  { icon: "Star", text: "Эксклюзивные бонусы Premium" },
 ]
 
 export function ServicesSection() {
@@ -50,10 +58,10 @@ export function ServicesSection() {
           Наша экспертиза
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
-          В чем мы <span className="text-primary">сильны</span>
+          Что мы делаем для <span className="text-primary">вашего бизнеса</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed text-lg">
-          От одного Reels до полного контент-сопровождения — мы закрываем все задачи по продвижению в социальных сетях.
+          Комплексный подход: от стратегии и упаковки до производства контента и аналитики результатов.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
@@ -72,6 +80,22 @@ export function ServicesSection() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-16 p-8 rounded-2xl bg-primary/5 border border-primary/10">
+          <h3 className="text-2xl font-bold text-center mb-8">
+            5 причин, почему выбирают <span className="text-primary">TT MEDIA</span>
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+            {whyUs.map((item, i) => (
+              <div key={i} className="flex flex-col items-center text-center gap-3 group">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Icon name={item.icon} fallback="Star" className="h-6 w-6 text-primary" />
+                </div>
+                <p className="text-sm font-semibold">{item.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

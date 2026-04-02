@@ -49,15 +49,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Мы в соцсетях</h4>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://t.me"
+                href="https://t.me/tanshinatati"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
@@ -65,12 +57,10 @@ export function Footer() {
                 Telegram
               </a>
               <a
-                href="https://vk.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:89202424921"
                 className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
               >
-                ВКонтакте
+                8-920-242-49-21
               </a>
             </div>
           </div>

@@ -145,7 +145,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Телефон</h3>
-                    <p className="text-sm text-muted-foreground">+7 900 123-45-67</p>
+                    <p className="text-sm text-muted-foreground">8-920-242-49-21</p>
                   </div>
                 </div>
               </CardContent>
@@ -158,12 +158,15 @@ export function ContactSection() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Время работы</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Пн - Пт: 9:00 - 18:00
-                      <br />
-                      Выходные: по договоренности
-                    </p>
+                    <h3 className="font-semibold mb-1">Telegram</h3>
+                    <a
+                      href="https://t.me/tanshinatati"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      @tanshinatati
+                    </a>
                   </div>
                 </div>
               </CardContent>
