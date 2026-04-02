@@ -1,6 +1,5 @@
-import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, ChevronDown, ChevronUp } from "lucide-react"
+import { Check } from "lucide-react"
 import { QuoteFormDialog } from "@/components/QuoteFormDialog"
 import Icon from "@/components/ui/icon"
 
@@ -9,20 +8,17 @@ const pricingTiers = [
     name: "Стартовый",
     price: "50 000",
     discount: null,
+    discountNote: null,
     period: "/ мес",
     badge: null,
     subtitle: "Качественный старт для вашего бизнеса",
     features: [
+      "Анализ конкурентов и разработка базовой SMM-стратегии",
       "Контент-план на месяц",
-      "8 Reels на iPhone (с монтажом)",
-      "4 поста в месяц",
-      "Ежемесячная аналитика и отчётность",
-      "Оптимизация контента под тренды",
-      "Основные KPI и рекомендации",
-    ],
-    extras: [
-      "Тематическая съёмка — по запросу",
-      "+2 Reels за 10 000 ₽",
+      "Съёмка на iPhone: 8 Reels, 4 поста, 30 историй",
+      "Разработка фирменных обложек для Reels",
+      "Написание сценариев для видео",
+      "Ежемесячная аналитика и базовая отчётность",
     ],
     highlighted: false,
   },
@@ -30,25 +26,19 @@ const pricingTiers = [
     name: "Активный рост",
     price: "140 000",
     discount: "110 000",
+    discountNote: "Выгода 90 000 ₽ при оплате за 3 мес.",
     period: "/ мес",
     badge: "Популярный",
-    subtitle: "Команда: продюсер, SMM-менеджер, мобилограф",
+    subtitle: "Продюсер + SMM-менеджер + мобилограф",
     features: [
+      "Анализ конкурентов и разработка SMM-стратегии",
       "Контент-план на месяц",
-      "12 Reels + 7 постов (сценарии и монтаж)",
-      "SEO-копирайтинг для постов",
-      "45 Stories (интерактивы, голосования)",
-      "Кросспостинг (VK, Telegram, Instagram)",
-      "Ежемесячная отчётность и стратегия",
-      "Анализ конкурентов и аудит соцсетей",
-    ],
-    extras: [
-      "Работа с блогерами и инфлюенсерами",
-      "Розыгрыши для роста вовлечённости",
-      "Кастинг актёров и подбор локаций",
-      "Подбор реквизита для съёмок",
-      "Профессиональная фотосессия — по запросу",
-      "Таргетинг и реклама — по запросу",
+      "Съёмка на проф. камеру: 12 Reels, 8 постов, 45 историй",
+      "Продюсирование съёмок «под ключ»",
+      "Написание сценариев и обложки для Reels",
+      "Кросспостинг (дублирование в 2 соцсети на выбор)",
+      "Организация 1 масштабного розыгрыша с партнёрами",
+      "Ежемесячная аналитика, отчётность и корректировка стратегии",
     ],
     highlighted: true,
   },
@@ -56,35 +46,27 @@ const pricingTiers = [
     name: "VIP Продвижение",
     price: "200 000",
     discount: "150 000",
+    discountNote: "Выгода 150 000 ₽ при оплате за 3 мес.",
     period: "/ мес",
     badge: "Топ",
-    subtitle: "Команда: продюсер, SMM-менеджер, видеограф",
+    subtitle: "Продюсер + SMM-менеджер + видеограф",
     features: [
+      "Анализ конкурентов и разработка SMM-стратегии",
       "Контент-план на месяц",
-      "12 Reels + 12 постов (проф. съёмка и монтаж)",
-      "SEO-копирайтинг для всех материалов",
-      "Обложки для Reels и постов",
-      "45 Stories с интерактивными элементами",
-      "Кросспостинг (VK, Telegram, Instagram)",
-      "Ежемесячная отчётность и стратегия",
-      "Анализ конкурентов и трендов",
-    ],
-    extras: [
-      "Кастинг актёров для роликов",
-      "Подбор локаций и реквизита",
-      "Коллаборации с блогерами и розыгрыши",
-      "Прямые эфиры, викторины, конкурсы",
-      "YouTube / TikTok — мультиканальный подход",
-      "Проф. видеосъёмка с монтажом — по запросу",
-      "Запуск рекламных кампаний — по запросу",
+      "Съёмка на проф. камеру: 15 Reels, 8 постов, 45 историй",
+      "Продюсирование съёмок «под ключ»",
+      "Написание сценариев и сложный монтаж (с ИИ)",
+      "Обложки для Reels",
+      "Кросспостинг на ВСЕ доступные площадки",
+      "Организация 1 масштабного розыгрыша с партнёрами",
+      "PR: выступление на ТВ «Липецкое время» или публикация в СМИ",
+      "Ежемесячная аналитика, отчётность и корректировка стратегии",
     ],
     highlighted: false,
   },
 ]
 
 export function PricingSection() {
-  const [openExtras, setOpenExtras] = useState<number | null>(null)
-
   return (
     <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -105,7 +87,7 @@ export function PricingSection() {
             Пакеты <span className="text-primary">услуг</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            При подписке на 3 месяца — специальная цена на тарифы «Активный рост» и «VIP Продвижение»
+            При оплате за 3 месяца — специальная цена и дополнительная выгода
           </p>
         </div>
 
@@ -128,25 +110,29 @@ export function PricingSection() {
                 <CardTitle className="text-2xl mb-1">{tier.name}</CardTitle>
                 <p className="text-xs text-muted-foreground">{tier.subtitle}</p>
                 <div className="mt-4 space-y-1">
-                  {tier.discount && (
-                    <div className="flex items-center justify-center gap-2">
-                      <span className="text-sm text-muted-foreground line-through">{tier.price} ₽</span>
-                      <span className="text-xs bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-full font-semibold">−3 мес</span>
+                  {tier.discount ? (
+                    <>
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-sm text-muted-foreground line-through">{tier.price} ₽/мес</span>
+                      </div>
+                      <div>
+                        <span className="text-4xl font-black">{tier.discount}</span>
+                        <span className="text-lg font-normal text-muted-foreground"> ₽{tier.period}</span>
+                      </div>
+                      {tier.discountNote && (
+                        <p className="text-xs text-emerald-600 font-semibold">{tier.discountNote}</p>
+                      )}
+                    </>
+                  ) : (
+                    <div>
+                      <span className="text-4xl font-black">{tier.price}</span>
+                      <span className="text-lg font-normal text-muted-foreground"> ₽{tier.period}</span>
                     </div>
-                  )}
-                  <div>
-                    <span className="text-4xl font-black">
-                      {tier.discount ? tier.discount : tier.price}
-                    </span>
-                    <span className="text-lg font-normal text-muted-foreground"> ₽{tier.period}</span>
-                  </div>
-                  {tier.discount && (
-                    <p className="text-xs text-muted-foreground">{tier.price} ₽ при ежемесячной оплате</p>
                   )}
                 </div>
               </CardHeader>
               <CardContent className="flex flex-col flex-1">
-                <ul className="space-y-2.5 mb-4 flex-1">
+                <ul className="space-y-2.5 mb-6 flex-1">
                   {tier.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
@@ -154,28 +140,6 @@ export function PricingSection() {
                     </li>
                   ))}
                 </ul>
-
-                {/* Дополнительные опции */}
-                <div className="mb-4">
-                  <button
-                    onClick={() => setOpenExtras(openExtras === index ? null : index)}
-                    className="flex items-center gap-1.5 text-xs text-primary font-semibold hover:opacity-80 transition-opacity"
-                  >
-                    {openExtras === index ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                    {openExtras === index ? "Скрыть бонусы" : "Показать бонусы и доп. опции"}
-                  </button>
-                  {openExtras === index && (
-                    <ul className="mt-2 space-y-2 pl-1">
-                      {tier.extras.map((extra, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-primary mt-1 flex-shrink-0">✦</span>
-                          <span className="text-xs text-muted-foreground leading-relaxed">{extra}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
                 <QuoteFormDialog
                   packageName={tier.name}
                   variant={tier.highlighted ? "default" : "outline"}
