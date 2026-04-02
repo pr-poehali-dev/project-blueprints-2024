@@ -41,10 +41,10 @@ const services = [
 ]
 
 const whyUs = [
-  { icon: "Tv", text: "Телевизионная экспертиза" },
-  { icon: "LayoutDashboard", text: "Системный премиальный подход" },
+  { icon: "LayoutDashboard", text: "Системный подход" },
   { icon: "Users", text: "Команда профессионалов" },
   { icon: "Layers", text: "Многоформатный контент" },
+  { icon: "Target", text: "Фокус на результат" },
   { icon: "Star", text: "Эксклюзивные бонусы Premium" },
 ]
 
@@ -58,7 +58,7 @@ export function ServicesSection() {
           Наша экспертиза
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
-          Что мы делаем для <span className="text-primary">вашего бизнеса</span>
+          В чём мы <span className="text-primary">сильны</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed text-lg">
           Комплексный подход: от стратегии и упаковки до производства контента и аналитики результатов.

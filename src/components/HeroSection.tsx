@@ -60,7 +60,7 @@ export function HeroSection() {
       <div className="container mx-auto text-center max-w-5xl relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-fade-in-up">
           <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm font-semibold text-primary">Премиальное агентство для экспертов и B2B</span>
+          <span className="text-sm font-semibold text-primary">Креативное контент-агентство</span>
         </div>
 
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 animate-fade-in-up text-balance leading-none">
@@ -88,10 +88,6 @@ export function HeroSection() {
         <p className="text-xl sm:text-2xl text-muted-foreground mb-3 max-w-3xl mx-auto animate-fade-in-up animate-delay-100 leading-relaxed">
           Превращаем контент в инструмент роста: больше клиентов, доверия и продаж через соцсети, видео и стратегию.
         </p>
-        <p className="text-base sm:text-lg text-muted-foreground/60 mb-10 max-w-2xl mx-auto animate-fade-in-up animate-delay-100">
-          Эксклюзивный подход, телевизионное качество и системная стратегия для роста вашего бизнеса.
-        </p>
-
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animate-delay-200 mb-10">
           <Button
             size="lg"

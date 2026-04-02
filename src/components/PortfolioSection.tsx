@@ -4,17 +4,17 @@ import { TrendingUp, ChevronLeft, ChevronRight } from "lucide-react"
 const projects = [
   {
     title: "Донской пар",
-    category: "Reels-производство + SMM",
+    category: "",
     image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/ae109b9a-b1ce-4384-8aa0-7ad07697cf3b.png",
-    result: "734K просмотров",
-    stats: ["С 0 до 1000 подписчиков за 2 мес.", "1 000 000 просмотров за 2 мес.", "719 комментариев · 1920 сохранений"],
+    result: "1M просмотров",
+    stats: ["С 0 до 1000 подписчиков за 2 месяца", "1 000 000 просмотров за 2 месяца", "719 комментариев и 1920 сохранений"],
   },
   {
     title: "АГРОштурман",
-    category: "Reels + YouTube Shorts",
+    category: "",
     image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/cdeeece9-b68d-4da2-ab7d-2d6338d62dfd.jpg",
-    result: "932K просмотров",
-    stats: ["932 тыс. просмотров на одном Shorts", "162 тыс. и 87 тыс. — топовые ролики", "Вирусный контент об агробизнесе"],
+    result: "2,4M просмотров",
+    stats: ["932 тыс. просмотров на одном Shorts", "2,4 млн просмотров", "+ 3000 подписчиков"],
   },
 ]
 
@@ -55,7 +55,6 @@ export function PortfolioSection() {
               </div>
               {/* Название внизу */}
               <div className="absolute bottom-5 left-5">
-                <p className="text-xs text-white/70 font-medium mb-1">{project.category}</p>
                 <h3 className="text-2xl font-black text-white">{project.title}</h3>
               </div>
             </div>
