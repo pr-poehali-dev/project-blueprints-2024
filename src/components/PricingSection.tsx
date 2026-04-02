@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from "lucide-react"
-import { QuoteFormDialog } from "@/components/QuoteFormDialog"
+import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 
 const pricingTiers = [
@@ -29,7 +29,7 @@ const pricingTiers = [
     discount: "110 000",
     discountNote: "Выгода 90 000 ₽ при оплате за 3 мес.",
     period: "/ мес",
-    badge: "Популярный",
+    badge: null,
     subtitle: "Продюсер + SMM-менеджер + оператор",
     features: [
       "Анализ конкурентов и разработка SMM-стратегии",
@@ -43,7 +43,7 @@ const pricingTiers = [
       "Организация 1 масштабного розыгрыша с партнёрами",
       "Ежемесячная аналитика, отчётность и корректировка стратегии",
     ],
-    highlighted: true,
+    highlighted: false,
   },
   {
     name: "VIP Продвижение",
@@ -51,7 +51,7 @@ const pricingTiers = [
     discount: "150 000",
     discountNote: "Выгода 150 000 ₽ при оплате за 3 мес.",
     period: "/ мес",
-    badge: "Топ",
+    badge: "Популярный",
     subtitle: "Продюсер + SMM-менеджер + оператор",
     features: [
       "Анализ конкурентов и разработка SMM-стратегии",
@@ -68,7 +68,7 @@ const pricingTiers = [
       "PR: выступление на ТВ «Липецкое время» или публикация в СМИ",
       "Ежемесячная аналитика, отчётность и корректировка стратегии",
     ],
-    highlighted: false,
+    highlighted: true,
   },
 ]
 
@@ -146,13 +146,15 @@ export function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                <QuoteFormDialog
-                  packageName={tier.name}
+                <Button
                   variant={tier.highlighted ? "default" : "outline"}
                   className={`w-full ${tier.highlighted ? "shadow-lg shadow-primary/20" : ""}`}
+                  onClick={() => {
+                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                  }}
                 >
                   Выбрать тариф
-                </QuoteFormDialog>
+                </Button>
               </CardContent>
             </Card>
           ))}

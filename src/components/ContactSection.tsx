@@ -1,36 +1,5 @@
 import { Phone, Mail, Send, MessageSquare } from "lucide-react"
 
-const contactActions = [
-  {
-    label: "Написать в Telegram",
-    href: "https://t.me/tanshinatati",
-    icon: Send,
-    description: "@tanshinatati",
-    primary: true,
-  },
-  {
-    label: "Позвонить",
-    href: "tel:89202424921",
-    icon: Phone,
-    description: "8-920-242-49-21",
-    primary: false,
-  },
-  {
-    label: "Написать в MAX",
-    href: "https://max.ru/tanshinatati",
-    icon: MessageSquare,
-    description: "Мессенджер MAX",
-    primary: false,
-  },
-  {
-    label: "Написать на почту",
-    href: "mailto:tanshina97@mail.ru",
-    icon: Mail,
-    description: "tanshina97@mail.ru",
-    primary: false,
-  },
-]
-
 export function ContactSection() {
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
@@ -49,34 +18,58 @@ export function ContactSection() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-          {contactActions.map((action, i) => {
-            const Icon = action.icon
-            return (
-              <a
-                key={i}
-                href={action.href}
-                target={action.href.startsWith("http") ? "_blank" : undefined}
-                rel={action.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={`flex items-center gap-4 p-5 rounded-2xl border-2 transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
-                  action.primary
-                    ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90"
-                    : "bg-background border-border hover:border-primary"
-                }`}
-              >
-                <div className={`p-3 rounded-xl flex-shrink-0 transition-colors ${
-                  action.primary
-                    ? "bg-white/20"
-                    : "bg-primary/10 group-hover:bg-primary/20"
-                }`}>
-                  <Icon className={`h-5 w-5 ${action.primary ? "text-white" : "text-primary"}`} />
-                </div>
-                <div className="text-left">
-                  <p className={`font-bold text-base ${action.primary ? "text-white" : ""}`}>{action.label}</p>
-                  <p className={`text-sm ${action.primary ? "text-white/70" : "text-muted-foreground"}`}>{action.description}</p>
-                </div>
-              </a>
-            )
-          })}
+          <a
+            href="https://t.me/tanshinatati"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-5 rounded-2xl border-2 bg-primary text-primary-foreground border-primary hover:bg-primary/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div className="p-3 rounded-xl bg-white/20 flex-shrink-0">
+              <Send className="h-5 w-5 text-white" />
+            </div>
+            <div className="text-left">
+              <p className="font-bold text-base text-white">Написать в Telegram</p>
+              <p className="text-sm text-white/70">@tanshinatati</p>
+            </div>
+          </a>
+
+          <div className="flex items-center gap-4 p-5 rounded-2xl border-2 bg-background border-border opacity-50 cursor-not-allowed select-none">
+            <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
+              <Phone className="h-5 w-5 text-primary" />
+            </div>
+            <div className="text-left">
+              <p className="font-bold text-base">Позвонить</p>
+              <p className="text-sm text-muted-foreground">8-920-242-49-21</p>
+            </div>
+          </div>
+
+          <a
+            href="https://max.ru/u/f9LHodD0cOJ8qj86uLmsoip6PXJ8appEgljI0Nzv4mM1726-7mxqsyR_blw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-5 rounded-2xl border-2 bg-background border-border hover:border-primary transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
+              <MessageSquare className="h-5 w-5 text-primary" />
+            </div>
+            <div className="text-left">
+              <p className="font-bold text-base">Написать в MAX</p>
+              <p className="text-sm text-muted-foreground">Мессенджер MAX</p>
+            </div>
+          </a>
+
+          <a
+            href="mailto:tanshina97@mail.ru"
+            className="flex items-center gap-4 p-5 rounded-2xl border-2 bg-background border-border hover:border-primary transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
+              <Mail className="h-5 w-5 text-primary" />
+            </div>
+            <div className="text-left">
+              <p className="font-bold text-base">Написать на почту</p>
+              <p className="text-sm text-muted-foreground">tanshina97@mail.ru</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>

@@ -7,6 +7,7 @@ export function Footer() {
             <div className="flex items-center gap-1 mb-3">
               <span className="text-xl font-black tracking-tighter text-primary">TT</span>
               <span className="text-xl font-black tracking-tighter">MEDIA</span>
+              <span className="text-base font-black text-muted-foreground ml-1">48</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Креативное агентство SMM и Reels-контента. Делаем ваш бренд заметным в соцсетях.
