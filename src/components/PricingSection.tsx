@@ -4,39 +4,43 @@ import { QuoteFormDialog } from "@/components/QuoteFormDialog"
 
 const pricingTiers = [
   {
-    name: "Базовый",
-    price: "99 900",
+    name: "Старт",
+    price: "29 900",
+    period: "/ мес",
     features: [
-      "До 5 страниц",
-      "Адаптивный дизайн",
-      "Базовая SEO-оптимизация",
-      "Форма обратной связи",
-      "1 месяц поддержки",
+      "8 Reels в месяц",
+      "Контент-план",
+      "Ведение 1 соцсети",
+      "Сторис (12 шт/мес)",
+      "Ежемесячный отчёт",
     ],
     highlighted: false,
   },
   {
-    name: "Про",
-    price: "249 900",
+    name: "Рост",
+    price: "59 900",
+    period: "/ мес",
     features: [
-      "До 15 страниц",
-      "Премиум-дизайн",
-      "Расширенная SEO-оптимизация",
-      "Интеграция CMS",
-      "Функционал e-commerce",
-      "3 месяца поддержки",
+      "20 Reels в месяц",
+      "SMM-стратегия",
+      "Ведение 2 соцсетей",
+      "Сторис (30 шт/мес)",
+      "Таргетированная реклама",
+      "Еженедельные отчёты",
     ],
     highlighted: true,
   },
   {
-    name: "Индивидуальный",
+    name: "Бренд",
     price: "По запросу",
+    period: "",
     features: [
-      "Неограниченно страниц",
-      "Кастомный функционал",
-      "API-интеграции",
+      "Неограниченный контент",
+      "Полная SMM-стратегия",
+      "Все соцсети",
       "Персональный менеджер",
-      "6 месяцев поддержки",
+      "Съёмочная команда",
+      "Приоритетная поддержка",
     ],
     highlighted: false,
   },
@@ -63,7 +67,7 @@ export function PricingSection() {
             Выберите <span className="text-primary">идеальный тариф</span> для вашего проекта
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            От стартапов до крупного бизнеса — у нас есть подходящее решение
+            Подходим для малого бизнеса, блогеров и крупных брендов
           </p>
         </div>
 
@@ -92,7 +96,7 @@ export function PricingSection() {
                       <>
                         <span className="text-lg font-normal text-muted-foreground">от </span>
                         {tier.price}
-                        <span className="text-lg font-normal text-muted-foreground"> ₽</span>
+                        <span className="text-lg font-normal text-muted-foreground"> ₽{tier.period}</span>
                       </>
                     )}
                   </span>
@@ -121,8 +125,8 @@ export function PricingSection() {
 
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground">
-            Все тарифы включают <span className="text-primary font-semibold">бесплатную настройку хостинга</span> и{" "}
-            <span className="text-primary font-semibold">SSL-сертификат</span>
+            Все тарифы включают <span className="text-primary font-semibold">бесплатный аудит</span> и{" "}
+            <span className="text-primary font-semibold">стратегическую сессию</span>
           </p>
         </div>
       </div>

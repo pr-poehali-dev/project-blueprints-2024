@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -13,15 +13,15 @@
     --card-foreground: 240 10% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 10%;
-    --primary: 350 100% 50%; /* Bright red #FF0035 */
+    --primary: 262 83% 58%; /* Purple #7C3AED */
     --primary-foreground: 0 0% 100%;
     --secondary: 240 5% 95%;
     --secondary-foreground: 240 10% 10%;
     --muted: 240 5% 96%;
     --muted-foreground: 240 5% 45%;
-    --accent: 350 100% 50%;
+    --accent: 262 83% 58%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 350 100% 50%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     --border: 240 5% 90%;
     --input: 240 5% 90%;
@@ -50,20 +50,20 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 11%;
     --popover-foreground: 0 0% 98%;
-    --primary: 350 100% 50%; /* Bright red #FF0035 */
+    --primary: 262 83% 65%; /* Purple light for dark mode */
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 10% 22%; /* #38405F */
+    --secondary: 240 10% 22%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 10% 26%; /* #59546C */
-    --muted-foreground: 240 5% 55%; /* #8B939C */
-    --accent: 350 100% 50%;
+    --muted: 240 10% 26%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 262 83% 65%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 350 100% 50%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     --border: 240 10% 22%;
     --input: 240 10% 22%;
-    --ring: 350 100% 50%;
-    --chart-1: 350 100% 50%;
+    --ring: 262 83% 65%;
+    --chart-1: 262 83% 65%;
     --chart-2: 240 10% 35%;
     --chart-3: 240 10% 45%;
     --chart-4: 240 10% 55%;

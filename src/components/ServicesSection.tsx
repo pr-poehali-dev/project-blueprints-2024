@@ -1,42 +1,42 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Layout, Palette, Code, Share2, Target, Search } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 const services = [
   {
-    icon: Layout,
-    title: "Веб-дизайн",
+    icon: "Play",
+    title: "Reels-производство",
     description:
-      "Мы создаем сайты, которые не только визуально привлекательны, но и функциональны, удобны в использовании. В CodeCraft ваш бренд в центре внимания — мы обеспечиваем соответствие онлайн-присутствия целям и ценностям вашего бизнеса.",
+      "Снимаем и монтируем Reels под ключ: сценарий, съёмка, монтаж, субтитры и обложки. Создаём ролики, которые набирают просмотры и привлекают новую аудиторию.",
   },
   {
-    icon: Palette,
-    title: "Графический дизайн",
+    icon: "LayoutGrid",
+    title: "Ведение соцсетей",
     description:
-      "От логотипов до постов в соцсетях — мы создаем креативные графические решения, усиливающие ваш бренд. Наши дизайны уникальны и профессиональны, производя нужное впечатление на целевую аудиторию.",
+      "Полное ведение Instagram, ВКонтакте и Telegram: контент-план, публикации, сторис, общение с аудиторией. Ваши соцсети живут и растут без вашего участия.",
   },
   {
-    icon: Code,
-    title: "Веб-разработка",
+    icon: "TrendingUp",
+    title: "SMM-стратегия",
     description:
-      "Мы создаем технически надежные и перспективные сайты. Наша команда обеспечивает надежность, масштабируемость и скорость, помогая вашему бизнесу расти в цифровом пространстве.",
+      "Разрабатываем стратегию присутствия бренда в соцсетях: позиционирование, рубрики, tone of voice и воронку от подписчика до клиента.",
   },
   {
-    icon: Share2,
-    title: "Соцсети",
+    icon: "Target",
+    title: "Таргетированная реклама",
     description:
-      "Сильное присутствие в социальных сетях сегодня решает многое. Мы поможем создать впечатление с помощью привлекательных визуалов и эффективных стратегий, чтобы ваш бренд оставался заметным.",
+      "Запускаем рекламу в Instagram и ВКонтакте: настройка аудиторий, создание креативов, тестирование связок и оптимизация для максимального ROI.",
   },
   {
-    icon: Target,
-    title: "Результат",
+    icon: "BarChart2",
+    title: "Аналитика и отчётность",
     description:
-      "В CodeCraft мы нацелены на успех. Наш подход всегда направлен на достижение измеримых результатов, способствующих росту вашего бизнеса. Вместе находим то, что действительно работает.",
+      "Еженедельные и ежемесячные отчёты: охваты, вовлечённость, рост подписчиков, стоимость лида. Прозрачно показываем, что работает, а что нужно улучшить.",
   },
   {
-    icon: Search,
-    title: "SEO",
+    icon: "Sparkles",
+    title: "Брендинг для соцсетей",
     description:
-      "Видимость в поиске критически важна. Мы оптимизируем сайт с применением современных SEO-техник, чтобы вы были выше в Google и целевая аудитория легко вас находила.",
+      "Создаём визуальный стиль для соцсетей: шаблоны сторис, обложки Reels, единую цветовую схему. Ваш профиль выглядит профессионально и запоминается.",
   },
 ]
 
@@ -53,7 +53,7 @@ export function ServicesSection() {
           В чем мы <span className="text-primary">сильны</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed text-lg">
-          От концепции до запуска — мы трансформируем ваши цифровые амбиции в мощные онлайн-решения, приносящие результат.
+          От одного Reels до полного контент-сопровождения — мы закрываем все задачи по продвижению в социальных сетях.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
@@ -63,7 +63,7 @@ export function ServicesSection() {
             >
               <CardHeader>
                 <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                  <service.icon className="h-6 w-6" />
+                  <Icon name={service.icon} fallback="Star" className="h-6 w-6" />
                 </div>
                 <CardTitle className="text-xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
               </CardHeader>

@@ -1,15 +1,17 @@
-import { Github, Linkedin, Twitter } from "lucide-react"
-
 export function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">CodeCraft</h3>
+            <div className="flex items-center gap-1 mb-3">
+              <span className="text-xl font-black tracking-tighter text-primary">TT</span>
+              <span className="text-xl font-black tracking-tighter">MEDIA</span>
+            </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              2025 CodeCraft. Все права защищены.
+              Креативное агентство SMM и Reels-контента. Делаем ваш бренд заметным в соцсетях.
             </p>
+            <p className="text-xs text-muted-foreground mt-4">© 2026 TT MEDIA. Все права защищены.</p>
           </div>
 
           <div>
@@ -31,6 +33,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Тарифы
+                </a>
+              </li>
+              <li>
                 <a href="#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Контакты
                 </a>
@@ -42,31 +49,28 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Мы в соцсетях</h4>
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com"
+                href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
               >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
+                Instagram
               </a>
               <a
-                href="https://github.com"
+                href="https://t.me"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
               >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
+                Telegram
               </a>
               <a
-                href="https://twitter.com"
+                href="https://vk.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
               >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+                ВКонтакте
               </a>
             </div>
           </div>
