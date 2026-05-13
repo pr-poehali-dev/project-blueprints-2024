@@ -15,6 +15,12 @@ const cases = [
     stats: ["292 тысячи просмотров за месяц", "240 подписчиков за месяц"],
   },
   {
+    title: "Детский остеопат",
+    image: "https://cdn.poehali.dev/files/345f5f33-9348-4fc4-86ed-d083f1dc75e8.PNG",
+    result: "210K просмотров",
+    stats: ["210 тыс. просмотров на одном Reels", "С нуля до живого экспертного аккаунта", "Стабильный охват на каждом видео"],
+  },
+  {
     title: "АГРОштурман",
     image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/cdeeece9-b68d-4da2-ab7d-2d6338d62dfd.jpg",
     result: "2,4M просмотров",
