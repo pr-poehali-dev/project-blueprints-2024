@@ -5,29 +5,8 @@ import Icon from "@/components/ui/icon"
 
 const pricingTiers = [
   {
-    name: "Стартовый",
-    price: "50 000",
-    discount: null,
-    discountNote: null,
-    period: "/ мес",
-    badge: null,
-    subtitle: "Качественный старт для вашего бизнеса",
-    features: [
-      "Анализ конкурентов и разработка базовой SMM-стратегии",
-      "Контент-план на месяц",
-      "8 Reels (Съёмка на iPhone)",
-      "4 поста и 30 историй",
-      "Создание обложек для Reels",
-      "Написание сценариев для видео",
-      "Ежемесячная аналитика и базовая отчётность",
-    ],
-    highlighted: false,
-  },
-  {
     name: "Активный рост",
-    price: "140 000",
-    discount: "110 000",
-    discountNote: "Выгода 90 000 ₽ при оплате за 3 мес.",
+    price: "110 000",
     period: "/ мес",
     badge: null,
     subtitle: "Продюсер + SMM-менеджер + оператор",
@@ -47,9 +26,7 @@ const pricingTiers = [
   },
   {
     name: "VIP Продвижение",
-    price: "200 000",
-    discount: "150 000",
-    discountNote: "Выгода 150 000 ₽ при оплате за 3 мес.",
+    price: "150 000",
     period: "/ мес",
     badge: "Популярный",
     subtitle: "Продюсер + SMM-менеджер + оператор",
@@ -93,11 +70,11 @@ export function PricingSection() {
             Пакеты <span className="text-primary">услуг</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            При оплате за 3 месяца — специальная цена и дополнительная выгода
+            Выберите подходящий формат работы
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-3xl mx-auto">
           {pricingTiers.map((tier, index) => (
             <Card
               key={index}
@@ -115,26 +92,9 @@ export function PricingSection() {
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl mb-1">{tier.name}</CardTitle>
                 <p className="text-xs text-muted-foreground">{tier.subtitle}</p>
-                <div className="mt-4 space-y-1">
-                  {tier.discount ? (
-                    <>
-                      <div className="flex items-center justify-center gap-2">
-                        <span className="text-sm text-muted-foreground line-through">{tier.price} ₽/мес</span>
-                      </div>
-                      <div>
-                        <span className="text-4xl font-black">{tier.discount}</span>
-                        <span className="text-lg font-normal text-muted-foreground"> ₽{tier.period}</span>
-                      </div>
-                      {tier.discountNote && (
-                        <p className="text-xs text-emerald-600 font-semibold">{tier.discountNote}</p>
-                      )}
-                    </>
-                  ) : (
-                    <div>
-                      <span className="text-4xl font-black">{tier.price}</span>
-                      <span className="text-lg font-normal text-muted-foreground"> ₽{tier.period}</span>
-                    </div>
-                  )}
+                <div className="mt-4">
+                  <span className="text-4xl font-black">{tier.price}</span>
+                  <span className="text-lg font-normal text-muted-foreground"> ₽{tier.period}</span>
                 </div>
               </CardHeader>
               <CardContent className="flex flex-col flex-1">
