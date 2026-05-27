@@ -11,10 +11,14 @@ export function ContactSection() {
           Контакты
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
-          Готовы <span className="text-primary">вырасти в соцсетях?</span>
+          Получите бесплатный <span className="text-primary">стратегический разбор</span> вашего аккаунта
         </h2>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+          <span className="text-sm font-semibold text-primary">Обычная цена — 15 000 ₽</span>
+          <span className="text-xs line-through text-muted-foreground">платно</span>
+        </div>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-          Проведём бесплатный аудит ваших соцсетей и расскажем, как быстро увеличить охваты и привлечь клиентов.
+          Разберём ваш аккаунт по косточкам и дадим пошаговый план: что исправить, что снимать и как превратить просмотры в заявки. Без воды и шаблонных советов.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
@@ -33,15 +37,18 @@ export function ContactSection() {
             </div>
           </a>
 
-          <div className="flex items-center gap-4 p-5 rounded-2xl border-2 bg-background border-border opacity-50 cursor-not-allowed select-none">
-            <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
+          <a
+            href="tel:89202424921"
+            className="flex items-center gap-4 p-5 rounded-2xl border-2 bg-background border-border hover:border-primary transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
               <Phone className="h-5 w-5 text-primary" />
             </div>
             <div className="text-left">
               <p className="font-bold text-base">Позвонить</p>
               <p className="text-sm text-muted-foreground">8-920-242-49-21</p>
             </div>
-          </div>
+          </a>
 
           <a
             href="https://max.ru/u/f9LHodD0cOJ8qj86uLmsoip6PXJ8appEgljI0Nzv4mM1726-7mxqsyR_blw"

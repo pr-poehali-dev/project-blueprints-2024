@@ -4,27 +4,30 @@ const services = [
   {
     icon: "LayoutGrid",
     title: "SMM «под ключ»",
-    desc: "Анализ конкурентов, разработка стратегии, создание постов, регулярные сторис и кросспостинг во все соцсети.",
+    subtitle: "Упаковка и ведение соцсетей под ключ",
+    desc: "От маркетинговой стратегии и анализа конкурентов до создания регулярного контента, который транслирует ценности бренда, прогревает холодную аудиторию и готовит её к покупке.",
+    badge: "Популярное",
   },
   {
-    icon: "Play",
-    title: "Съёмка коротких видео",
-    desc: "Сценарии, съёмка Reels (на iPhone или проф. камеру), сложный монтаж с нейросетями и кликабельные обложки.",
-  },
-  {
-    icon: "Video",
-    title: "Продюсирование",
-    desc: "Организация съёмок от идеи до готового ролика. С вами работает целая команда: продюсер, SMM-менеджер и оператор.",
-  },
-  {
-    icon: "Megaphone",
-    title: "PR и розыгрыши",
-    desc: "Организация масштабных партнёрских интерактивов, публикации в СМИ и приглашение на ТВ («Липецкое время»).",
+    icon: "Clapperboard",
+    title: "Reels-продакшн полного цикла",
+    subtitle: "Съёмка + продюсирование",
+    desc: "Создаем ролики, которые привлекают целевую аудиторию. Пишем продающие сценарии с «крючками», организуем съёмки силами профессиональной команды (продюсер, оператор, SMM) и делаем трендовый монтаж с нейросетями.",
+    badge: "Хит",
   },
   {
     icon: "Bot",
-    title: "Разработка чат-ботов",
-    desc: "Создание умных ботов для автоматизации продаж и общения с клиентами в ваших соцсетях.",
+    title: "Автоворонки и чат-боты",
+    subtitle: "Продажи 24/7 без участия менеджера",
+    desc: "Внедряем умных ботов, которые мгновенно выдают лид-магниты в Директ, автоматически отвечают на комментарии под Reels и доводят клиентов до покупки 24/7 без участия менеджера.",
+    badge: null,
+  },
+  {
+    icon: "Tv",
+    title: "PR, коллаборации и СМИ",
+    subtitle: "Взрывной рост доверия к бренду",
+    desc: "Организация масштабных партнерских спецпроектов, публикации в прессе и вывод спикеров вашей компании на ТВ (включая «Липецкое время») для взрывного роста доверия к вашему бренду.",
+    badge: null,
   },
 ]
 
@@ -43,7 +46,7 @@ export function ServicesSection() {
             Наши <span className="text-primary">услуги</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Полный цикл контент-продвижения — от стратегии до результата
+            Создаем контент и выстраиваем автоворонки, которые превращают просмотры в заявки и продажи
           </p>
         </div>
 
@@ -51,14 +54,20 @@ export function ServicesSection() {
           {services.map((s, i) => (
             <div
               key={i}
-              className={`p-6 rounded-2xl bg-background border border-border hover:border-primary hover:shadow-xl transition-all duration-300 group ${i === 4 ? "sm:col-span-2" : ""}`}
+              className="relative p-6 rounded-2xl bg-background border border-border hover:border-primary hover:shadow-xl transition-all duration-300 group"
             >
+              {s.badge && (
+                <span className="absolute top-4 right-4 text-xs font-bold px-2.5 py-1 rounded-full bg-primary text-primary-foreground">
+                  {s.badge}
+                </span>
+              )}
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary transition-all duration-300 flex-shrink-0">
                   <Icon name={s.icon} fallback="Star" className="h-6 w-6 text-primary group-hover:text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg mb-1.5 group-hover:text-primary transition-colors">{s.title}</h3>
+                  <h3 className="font-bold text-lg mb-0.5 group-hover:text-primary transition-colors">{s.title}</h3>
+                  <p className="text-xs text-primary/70 font-semibold mb-2">{s.subtitle}</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                 </div>
               </div>
