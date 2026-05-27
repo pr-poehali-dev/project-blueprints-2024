@@ -1,53 +1,60 @@
 import { useState } from "react"
-import { TrendingUp, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const cases = [
   {
     title: "Донской пар",
     subtitle: "Строительство домов и бань",
-    description: "Выстроили систему генерации лидов на высокие чеки через органику Reels. Сделали ставку на микс: вирусный юмор для массового охвата и жесткий экспертный контент для прогрева и закрытия возражений.",
+    description: "Привлекли целевых лидов на строительство через соцсети. Снимали юмористические скетчи для широких охватов и полезный экспертный контент для закрытия возражений.",
     image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/e2f7386f-2718-432d-86ce-c63c7cc38f0f.PNG",
-    result: "1,1M просмотров",
     stats: [
       "1,1 млн просмотров на топовом Reels",
-      "174 тыс. просмотров на экспертном контенте",
-      "Стабильный поток горячих лидов",
+      "174 тыс. просмотров на экспертном видео",
+      "Стабильный поток лидов на расчет стоимости",
     ],
   },
   {
-    title: "Владимир Сургай",
-    subtitle: "Личный бренд эксперта",
-    description: "Упаковали экспертность в короткий контент, который работает на привлечение аудитории и формирование доверия. Результат — органический рост без рекламного бюджета.",
-    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/0f05aaf2-e0f7-4ee0-9f83-fadcf39f0945.jpg",
-    result: "292K просмотров",
-    stats: [
-      "292 тысячи просмотров за месяц",
-      "240 новых подписчиков за месяц",
-      "Рост вовлечённости аудитории",
-    ],
-  },
-  {
-    title: "Детский остеопат",
-    subtitle: "Медицинская экспертиза",
-    description: "Создали экспертный аккаунт с нуля для детского остеопата. Каждый Reels — полезный контент, который набирает охваты и приводит родителей на приём.",
+    title: "Ольга Путилина",
+    subtitle: "Здоровье. Детский остеопат",
+    description: "Раскачали личный бренд эксперта с нуля. Упаковали сложную медицинскую нишу в короткие понятные Reels для привлечения новой аудитории и записей на прием.",
     image: "https://cdn.poehali.dev/files/345f5f33-9348-4fc4-86ed-d083f1dc75e8.PNG",
-    result: "210K просмотров",
     stats: [
       "210 тыс. просмотров на одном Reels",
-      "С нуля до живого экспертного аккаунта",
-      "Стабильный охват на каждом видео",
+      "Успешный запуск блога с нуля",
+      "Стабильные охваты целевой аудитории",
     ],
   },
   {
     title: "АГРОштурман",
-    subtitle: "Агробизнес / YouTube Shorts",
-    description: "Запустили канал с нуля и вывели видео в топ рекомендаций. Один Shorts набрал почти миллион просмотров и дал взрывной прирост аудитории.",
+    subtitle: "Сельское хозяйство",
+    description: "Улучшили имидж разработчика агроинноваций в соцсетях. Взяли на себя комплексный продакшен: снимали рекламные ролики, длинные выпуски на YouTube и Shorts.",
     image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/cdeeece9-b68d-4da2-ab7d-2d6338d62dfd.jpg",
-    result: "2,4M просмотров",
     stats: [
       "932 тыс. просмотров на одном Shorts",
       "2,4 млн просмотров суммарно",
-      "+3000 подписчиков",
+      "+3000 целевых подписчиков",
+    ],
+  },
+  {
+    title: "Николай Соловьев",
+    subtitle: "Здоровье. Массаж",
+    description: "Повысили узнаваемость эксперта в соцсетях и обеспечили приток новых клиентов. Через понятный контент показали экспертность и наладили конверсию зрителей в записи на сеансы.",
+    image: "https://cdn.poehali.dev/files/8fd5ebf8-331b-4828-b053-cc750c3f4c99.PNG",
+    stats: [
+      "Увеличение узнаваемости личного бренда",
+      "Конверсия просмотров в записи на прием",
+      "1,1 млн просмотров на топовом видео",
+    ],
+  },
+  {
+    title: "Владимир Сургай",
+    subtitle: "Инфобизнес",
+    description: "Настроили генерацию лидов на инфопродукт через контент. Собрали воронку: привлекали трафик через короткие Reels и прогревали аудиторию длинными видео на YouTube.",
+    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/0f05aaf2-e0f7-4ee0-9f83-fadcf39f0945.jpg",
+    stats: [
+      "Запуск контентной воронки продаж",
+      "Стабильный поток теплых лидов",
+      "Связка Reels + YouTube для прогрева",
     ],
   },
 ]
@@ -80,24 +87,17 @@ export function PortfolioSection() {
                 alt={project.title}
                 className="w-full h-full object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-sm font-bold flex items-center gap-1.5 shadow-lg">
-                <TrendingUp className="h-3.5 w-3.5" />
-                {project.result}
-              </div>
             </div>
           </div>
 
           {/* Правая часть */}
           <div className="flex-1 flex flex-col gap-5 pt-2">
-            {/* Текстовый блок */}
             <div>
               <h3 className="text-3xl font-black leading-tight">{project.title}</h3>
               <p className="text-primary font-semibold text-base mt-1">{project.subtitle}</p>
               <p className="text-muted-foreground text-sm leading-relaxed mt-3">{project.description}</p>
             </div>
 
-            {/* Плашки со статистикой */}
             <div className="space-y-3 mt-1">
               {project.stats.map((stat, i) => (
                 <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 border border-border">
