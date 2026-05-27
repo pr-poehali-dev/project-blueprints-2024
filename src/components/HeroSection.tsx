@@ -85,9 +85,24 @@ export function HeroSection() {
           </span>
         </h1>
 
-        <p className="text-xl sm:text-2xl text-muted-foreground mb-3 max-w-3xl mx-auto animate-fade-in-up animate-delay-100 leading-relaxed">
+        <p className="text-xl sm:text-2xl text-muted-foreground mb-6 max-w-3xl mx-auto animate-fade-in-up animate-delay-100 leading-relaxed">
           Превращаем контент в инструмент роста: больше клиентов, доверия и продаж через соцсети, видео и стратегию.
         </p>
+
+        {/* Лид-магнит */}
+        <div className="animate-fade-in-up animate-delay-150 mb-6">
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-black text-lg shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:-translate-y-1 transition-all duration-300"
+          >
+            <span className="text-2xl">🎁</span>
+            <span>Забери бесплатный аудит аккаунта</span>
+            <span className="px-2.5 py-1 rounded-full bg-white/20 text-sm font-black">0 ₽</span>
+            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </a>
+          <p className="text-xs text-muted-foreground mt-2">Обычная цена — <span className="line-through">15 000 ₽</span> · Осталось мест на этой неделе: 3</p>
+        </div>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animate-delay-200 mb-10">
           <Button
             size="lg"
