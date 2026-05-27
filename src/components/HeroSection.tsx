@@ -122,6 +122,17 @@ export function HeroSection() {
           >
             <a href="#portfolio">Наши кейсы</a>
           </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-2 border-primary/30 text-foreground hover:bg-primary/5 hover:border-primary font-semibold px-8 py-6 text-lg backdrop-blur-sm bg-transparent group"
+            asChild
+          >
+            <a href="https://disk.yandex.ru/d/5otqRSgOGtzcew" target="_blank" rel="noopener noreferrer">
+              <Icon name="Play" className="mr-2 h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+              Примеры видео
+            </a>
+          </Button>
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 animate-fade-in-up animate-delay-300">
