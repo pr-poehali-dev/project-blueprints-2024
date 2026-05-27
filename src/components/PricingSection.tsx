@@ -5,20 +5,37 @@ import Icon from "@/components/ui/icon"
 
 const pricingTiers = [
   {
-    name: "Активный рост",
-    price: "110 000",
+    name: "Стартовый",
+    price: "50 000",
     period: "/ мес",
     badge: null,
-    subtitle: "Продюсер + SMM-менеджер + оператор",
     features: [
       "Анализ конкурентов и разработка SMM-стратегии",
       "Контент-план на месяц",
-      "12 Reels (Съёмка на проф. камеру)",
-      "8 постов и 45 историй",
+      "10 Reels (Съёмка на айфон)",
+      "Минимум 4 поста и 20 историй",
       "Продюсирование съёмок «под ключ»",
       "Написание сценариев",
       "Создание обложек для Reels",
-      "Кросспостинг (дублирование в 2 соцсети на выбор)",
+      "Кросспостинг",
+      "Ежемесячная аналитика, отчётность и корректировка стратегии",
+    ],
+    highlighted: false,
+  },
+  {
+    name: "Активный рост",
+    price: "70 000",
+    period: "/ мес",
+    badge: null,
+    features: [
+      "Анализ конкурентов и разработка SMM-стратегии",
+      "Контент-план на месяц",
+      "12 Reels (Съёмка на айфон/проф. камеру)",
+      "Минимум 6 постов и 30 историй",
+      "Продюсирование съёмок «под ключ»",
+      "Написание сценариев",
+      "Создание обложек для Reels",
+      "Кросспостинг",
       "Организация 1 масштабного розыгрыша с партнёрами",
       "Ежемесячная аналитика, отчётность и корректировка стратегии",
     ],
@@ -26,15 +43,14 @@ const pricingTiers = [
   },
   {
     name: "VIP Продвижение",
-    price: "150 000",
+    price: "99 000",
     period: "/ мес",
     badge: "Популярный",
-    subtitle: "Продюсер + SMM-менеджер + оператор",
     features: [
       "Анализ конкурентов и разработка SMM-стратегии",
       "Контент-план на месяц",
       "15 Reels (Съёмка на проф. камеру)",
-      "8 постов и 45 историй",
+      "Минимум 8 постов и 45 историй",
       "Продюсирование съёмок «под ключ»",
       "Написание сценариев",
       "Сложный монтаж (с использованием ИИ)",
@@ -74,7 +90,7 @@ export function PricingSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {pricingTiers.map((tier, index) => (
             <Card
               key={index}
@@ -91,7 +107,6 @@ export function PricingSection() {
               )}
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl mb-1">{tier.name}</CardTitle>
-                <p className="text-xs text-muted-foreground">{tier.subtitle}</p>
                 <div className="mt-4">
                   <span className="text-4xl font-black">{tier.price}</span>
                   <span className="text-lg font-normal text-muted-foreground"> ₽{tier.period}</span>

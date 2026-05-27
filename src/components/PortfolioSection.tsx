@@ -4,27 +4,51 @@ import { TrendingUp, ChevronLeft, ChevronRight } from "lucide-react"
 const cases = [
   {
     title: "Донской пар",
-    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/ae109b9a-b1ce-4384-8aa0-7ad07697cf3b.png",
-    result: "1M просмотров",
-    stats: ["С 0 до 1000 подписчиков за 2 месяца", "1 000 000 просмотров за 2 месяца", "719 комментариев и 1920 сохранений"],
+    subtitle: "Строительство домов и бань",
+    description: "Выстроили систему генерации лидов на высокие чеки через органику Reels. Сделали ставку на микс: вирусный юмор для массового охвата и жесткий экспертный контент для прогрева и закрытия возражений.",
+    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/e2f7386f-2718-432d-86ce-c63c7cc38f0f.PNG",
+    result: "1,1M просмотров",
+    stats: [
+      "1,1 млн просмотров на топовом Reels",
+      "174 тыс. просмотров на экспертном контенте",
+      "Стабильный поток горячих лидов",
+    ],
   },
   {
     title: "Владимир Сургай",
+    subtitle: "Личный бренд эксперта",
+    description: "Упаковали экспертность в короткий контент, который работает на привлечение аудитории и формирование доверия. Результат — органический рост без рекламного бюджета.",
     image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/0f05aaf2-e0f7-4ee0-9f83-fadcf39f0945.jpg",
     result: "292K просмотров",
-    stats: ["292 тысячи просмотров за месяц", "240 подписчиков за месяц"],
+    stats: [
+      "292 тысячи просмотров за месяц",
+      "240 новых подписчиков за месяц",
+      "Рост вовлечённости аудитории",
+    ],
   },
   {
     title: "Детский остеопат",
+    subtitle: "Медицинская экспертиза",
+    description: "Создали экспертный аккаунт с нуля для детского остеопата. Каждый Reels — полезный контент, который набирает охваты и приводит родителей на приём.",
     image: "https://cdn.poehali.dev/files/345f5f33-9348-4fc4-86ed-d083f1dc75e8.PNG",
     result: "210K просмотров",
-    stats: ["210 тыс. просмотров на одном Reels", "С нуля до живого экспертного аккаунта", "Стабильный охват на каждом видео"],
+    stats: [
+      "210 тыс. просмотров на одном Reels",
+      "С нуля до живого экспертного аккаунта",
+      "Стабильный охват на каждом видео",
+    ],
   },
   {
     title: "АГРОштурман",
+    subtitle: "Агробизнес / YouTube Shorts",
+    description: "Запустили канал с нуля и вывели видео в топ рекомендаций. Один Shorts набрал почти миллион просмотров и дал взрывной прирост аудитории.",
     image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/cdeeece9-b68d-4da2-ab7d-2d6338d62dfd.jpg",
     result: "2,4M просмотров",
-    stats: ["932 тыс. просмотров на одном Shorts", "2,4 млн просмотров", "+ 3000 подписчиков"],
+    stats: [
+      "932 тыс. просмотров на одном Shorts",
+      "2,4 млн просмотров суммарно",
+      "+3000 подписчиков",
+    ],
   },
 ]
 
@@ -46,8 +70,9 @@ export function PortfolioSection() {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          <div className="relative w-full md:w-[280px] flex-shrink-0">
+        <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+          {/* Левая часть — фото */}
+          <div className="relative w-full md:w-[260px] flex-shrink-0">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl" style={{ aspectRatio: "9/16" }}>
               <img
                 key={current}
@@ -60,14 +85,20 @@ export function PortfolioSection() {
                 <TrendingUp className="h-3.5 w-3.5" />
                 {project.result}
               </div>
-              <div className="absolute bottom-5 left-5">
-                <h3 className="text-2xl font-black text-white">{project.title}</h3>
-              </div>
             </div>
           </div>
 
-          <div className="flex-1 flex flex-col gap-6">
-            <div className="space-y-4">
+          {/* Правая часть */}
+          <div className="flex-1 flex flex-col gap-5 pt-2">
+            {/* Текстовый блок */}
+            <div>
+              <h3 className="text-3xl font-black leading-tight">{project.title}</h3>
+              <p className="text-primary font-semibold text-base mt-1">{project.subtitle}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed mt-3">{project.description}</p>
+            </div>
+
+            {/* Плашки со статистикой */}
+            <div className="space-y-3 mt-1">
               {project.stats.map((stat, i) => (
                 <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 border border-border">
                   <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
@@ -78,6 +109,7 @@ export function PortfolioSection() {
           </div>
         </div>
 
+        {/* Навигация */}
         <div className="flex items-center gap-4 mt-8 justify-center md:justify-start">
           <button
             onClick={prev}
