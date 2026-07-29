@@ -2,6 +2,7 @@ import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Icon from "@/components/ui/icon"
 import olgaImage from "@/assets/portfolio/olga-putilina.jpg"
+import biorseImage from "@/assets/portfolio/biorise.jpg"
 import donskoyImage from "@/assets/portfolio/donskoy-par.jpg"
 import priestImage from "@/assets/portfolio/priest.jpg"
 import massageImage from "@/assets/portfolio/massage.jpg"
@@ -10,7 +11,6 @@ const cases = [
   {
     title: "Ольга Путилина",
     subtitle: "Здоровье. Детский остеопат",
-    description: "Увеличили узнаваемость в Липецке и изменили отношение родителей к остеопатии.",
     image: olgaImage,
     instagram: "https://www.instagram.com/dr.olga_putilina/",
     videos: ["https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/"],
@@ -20,14 +20,27 @@ const cases = [
     ],
   },
   {
+    title: "BIORISE",
+    subtitle: "Бренд",
+    image: biorseImage,
+    instagram: null,
+    videos: ["https://rutube.ru/shorts/b0ae9ee6a009582688b497a4f2e0d7d2/"],
+    stats: [
+      "500 000+ просмотров на самом вирусном рилсе",
+      "35 000+ репостов",
+    ],
+  },
+  {
     title: "Донской пар",
     subtitle: "Строительство домов и бань",
-    description: "Создали аккаунт с нуля в социальных сетях и сделали бренд «Донской пар» узнаваемым.",
     image: donskoyImage,
     instagram: "https://www.instagram.com/donskoy_par",
-    videos: [],
+    videos: [
+      "https://rutube.ru/shorts/fd0edd196b670e7ae99c033aa265b894/",
+      "https://rutube.ru/shorts/ebb13be1c6031fd45f7cde0a5aae3aed/",
+      "https://rutube.ru/shorts/33a1c2f9542daa338093cc3889ac5f5f/",
+    ],
     stats: [
-      "40 рилсов сняли",
       "1 млн+ просмотров на самом вирусном рилсе",
       "110+ заявок",
       "+1400 целевых подписчиков",
@@ -36,7 +49,6 @@ const cases = [
   {
     title: "Отец Сергий",
     subtitle: "Личный бренд священника",
-    description: "Раскрыли личность спикера через короткие видео и увеличили доверие к каналу.",
     image: priestImage,
     instagram: "https://www.instagram.com/byriakovsergiy?igsh=MWlnenZqdGFoOGRwMw==",
     videos: [
@@ -48,13 +60,11 @@ const cases = [
       "3 рилса сняли",
       "230 000+ просмотров на самом вирусном рилсе",
       "35 000+ репостов",
-      "+535 целевых подписчиков",
     ],
   },
   {
     title: "Николай Соловьев",
     subtitle: "Здоровье. Массаж",
-    description: "Сделали по кайфу рилсы, чтобы они набирали просмотры, и повысили узнаваемость массажиста в инфополе.",
     image: massageImage,
     instagram: "https://www.instagram.com/kola.solovev/",
     videos: [
@@ -96,15 +106,17 @@ export function PortfolioSection() {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-            <a
-              href={project.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-lg"
-            >
-              <Icon name="Instagram" className="h-4 w-4" />
-              Смотреть аккаунт
-            </a>
+            {project.instagram && (
+              <a
+                href={project.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-lg"
+              >
+                <Icon name="Instagram" className="h-4 w-4" />
+                Смотреть аккаунт
+              </a>
+            )}
           </div>
 
           {/* Правая часть */}
@@ -112,7 +124,6 @@ export function PortfolioSection() {
             <div>
               <h3 className="text-3xl font-black leading-tight">{project.title}</h3>
               <p className="text-primary font-semibold text-base mt-1">{project.subtitle}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed mt-3">{project.description}</p>
             </div>
 
             <div className="space-y-3 mt-1">

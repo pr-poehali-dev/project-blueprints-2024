@@ -3,16 +3,14 @@ const team = [
     name: "Таньшина Татьяна",
     role: "Основатель, маркетолог и телеведущая",
     bio: "Действующая телеведущая канала «Липецкое время» и автор программы «Свое мнение». Татьяна на практике знает, как удерживать внимание зрителя и превращать сухую информацию в контент, который обсуждают.",
-    superpower: "Раскрывать людей в кадре и делать так, чтобы зритель поверил с первых секунд.",
     image: "https://cdn.poehali.dev/files/35356dc8-fb3c-4ec9-9a14-0e84f35a9912.png",
     gradient: "from-rose-950 via-slate-900 to-slate-900",
     accentColor: "bg-rose-500",
   },
   {
     name: "Евгений Володин",
-    role: "Продюсер и контент-маркетолог",
-    bio: "Прошел весь цикл видеопроизводства своими руками: работал оператором, монтировал, а сейчас продюсирует и режиссирует проекты.",
-    superpower: "Работа со смыслами и триггерами. Я знаю, почему люди досмотрят ролик до последней секунды, и это происходит точно не из-за красивого монтажа.",
+    role: "PR-менеджер · Контент-маркетолог · Продюсер",
+    bio: "Больше 5 лет в PR и контент-продюсировании. Прошел путь от пресс-секретаря МЧС до создания комплексных стратегий для бизнеса и экспертов.",
     image: "https://cdn.poehali.dev/files/07fc9a1c-9678-4bda-bcc4-3de0fe1e4cb9.jpeg",
     gradient: "from-slate-900 via-slate-800 to-slate-900",
     accentColor: "bg-purple-500",
@@ -67,15 +65,6 @@ export function TeamSection() {
 
                 {/* Описание */}
                 <p className="text-white/80 text-sm leading-relaxed">{member.bio}</p>
-
-                {/* Суперспособность */}
-                <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
-                  <div className={`w-2 h-2 rounded-full ${member.accentColor} flex-shrink-0 mt-1.5`} />
-                  <div>
-                    <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-1">Суперспособность</p>
-                    <p className="text-white text-sm leading-relaxed">{member.superpower}</p>
-                  </div>
-                </div>
               </div>
             </div>
           ))}
