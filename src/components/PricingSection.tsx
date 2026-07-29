@@ -45,7 +45,7 @@ const pricingTiers = [
   },
   {
     name: "VIP Продвижение",
-    price: "120 000",
+    price: "150 000",
     period: "/ мес",
     badge: "Популярный",
     features: [
