@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,76 +6,75 @@
 
 @layer base {
   :root {
-    /* Custom color palette for CodeCraft light mode */
-    --background: 0 0% 99%;
-    --foreground: 240 10% 10%;
+    /* Digital white studio palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 6%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    --card-foreground: 0 0% 6%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
-    --primary: 262 83% 58%; /* Purple #7C3AED */
+    --popover-foreground: 0 0% 6%;
+    --primary: 0 0% 6%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 95%;
-    --secondary-foreground: 240 10% 10%;
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 5% 45%;
-    --accent: 262 83% 58%;
-    --accent-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 6%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 72 100% 50%; /* Lime #C5FF00 */
+    --accent-foreground: 0 0% 6%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 5% 90%;
-    --input: 240 5% 90%;
-    --ring: 350 100% 50%;
-    --radius: 0.5rem;
-    --chart-1: 350 100% 50%;
-    --chart-2: 240 5% 35%;
-    --chart-3: 240 5% 45%;
-    --chart-4: 240 5% 55%;
-    --chart-5: 240 5% 65%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 6%;
+    --radius: 0rem;
+    --chart-1: 72 100% 50%;
+    --chart-2: 0 0% 35%;
+    --chart-3: 0 0% 45%;
+    --chart-4: 0 0% 55%;
+    --chart-5: 0 0% 65%;
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5% 26%;
-    --sidebar-primary: 240 5% 10%;
+    --sidebar-foreground: 0 0% 26%;
+    --sidebar-primary: 0 0% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 5% 96%;
-    --sidebar-accent-foreground: 240 5% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 91%;
+    --sidebar-ring: 72 100% 50%;
   }
 
   .dark {
-    /* Custom color palette for CodeCraft dark mode */
-    --background: 240 10% 9%; /* #0E131F */
+    --background: 0 0% 5%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 13%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 11%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 98%;
-    --primary: 262 83% 65%; /* Purple light for dark mode */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 10% 22%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 6%;
+    --secondary: 0 0% 14%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 10% 26%;
-    --muted-foreground: 240 5% 55%;
-    --accent: 262 83% 65%;
-    --accent-foreground: 0 0% 100%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 72 100% 50%;
+    --accent-foreground: 0 0% 6%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 10% 22%;
-    --input: 240 10% 22%;
-    --ring: 262 83% 65%;
-    --chart-1: 262 83% 65%;
-    --chart-2: 240 10% 35%;
-    --chart-3: 240 10% 45%;
-    --chart-4: 240 10% 55%;
-    --chart-5: 240 10% 65%;
-    --sidebar-background: 240 5% 10%;
-    --sidebar-foreground: 240 5% 96%;
-    --sidebar-primary: 217 76% 48%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4% 27%;
-    --sidebar-accent-foreground: 240 5% 96%;
-    --sidebar-border: 240 4% 27%;
-    --sidebar-ring: 217 91% 44%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 72 100% 50%;
+    --chart-1: 72 100% 50%;
+    --chart-2: 0 0% 45%;
+    --chart-3: 0 0% 55%;
+    --chart-4: 0 0% 65%;
+    --chart-5: 0 0% 75%;
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 72 100% 50%;
+    --sidebar-primary-foreground: 0 0% 6%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 72 100% 50%;
   }
 }
 
@@ -89,11 +88,60 @@
   }
 }
 
+/* ===== Digital studio utilities ===== */
+
+.font-mono-tag {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Hard-edge card, signature style of the new design */
+.card-hard {
+  border: 1.5px solid hsl(var(--border));
+  background: hsl(var(--card));
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hard:hover {
+  border-color: hsl(var(--foreground));
+}
+
+/* Accent hard shadow (neo-brutalist offset) */
+.shadow-hard {
+  box-shadow: 6px 6px 0 0 hsl(var(--foreground));
+}
+.shadow-hard-accent {
+  box-shadow: 6px 6px 0 0 hsl(var(--accent));
+}
+
+/* Grid backdrop */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Marquee row */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
 /* Custom animations for scroll effects */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -102,11 +150,16 @@
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-delay-100 {
   animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.animate-delay-150 {
+  animation-delay: 0.15s;
   opacity: 0;
 }
 
@@ -120,25 +173,16 @@
   opacity: 0;
 }
 
-/* Added floating animation for hero icons */
 @keyframes float {
   0%,
   100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-16px);
   }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
-}
-
-/* Grid pattern for process section */
-.bg-grid-pattern {
-  background-image:
-    linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
-  background-size: 40px 40px;
 }

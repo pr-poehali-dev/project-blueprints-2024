@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import Icon from "@/components/ui/icon"
 import olgaImage from "@/assets/portfolio/olga-putilina.jpg"
 import biorseImage from "@/assets/portfolio/biorise.jpg"
@@ -88,62 +88,82 @@ const cases = [
 
 export function PortfolioSection() {
   const [current, setCurrent] = useState(0)
-
-  const prev = () => setCurrent((c) => (c - 1 + cases.length) % cases.length)
-  const next = () => setCurrent((c) => (c + 1) % cases.length)
-
   const project = cases[current]
 
   return (
-    <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-balance">Наши кейсы</h2>
+    <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8 border-b-2 border-foreground">
+      <div className="container mx-auto max-w-6xl">
+        <div className="flex items-end justify-between mb-8 border-b-2 border-foreground pb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter">
+            Кейсы
+          </h2>
+          <span className="font-mono-tag text-xs uppercase tracking-wide text-muted-foreground hidden sm:block">
+            {String(current + 1).padStart(2, "0")} / {String(cases.length).padStart(2, "0")}
+          </span>
         </div>
 
-        <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-          {/* Левая часть — фото профиля */}
-          <div className="relative w-full md:w-[260px] flex-shrink-0">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl" style={{ aspectRatio: "9/16" }}>
-              <img
-                key={current}
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
+        {/* Список-переключатель */}
+        <div className="flex flex-wrap border-2 border-foreground border-b-0 mb-0">
+          {cases.map((c, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`px-4 py-3 text-sm font-bold font-mono-tag uppercase tracking-wide border-r-2 border-foreground last:border-r-0 transition-colors ${
+                i === current ? "bg-foreground text-background" : "hover:bg-accent"
+              }`}
+            >
+              {c.title}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-[340px_1fr] border-2 border-foreground">
+          {/* Фото */}
+          <div className="relative border-b-2 md:border-b-0 md:border-r-2 border-foreground overflow-hidden" style={{ aspectRatio: "4/5" }}>
+            <img
+              key={current}
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover object-top"
+            />
             {project.instagram && (
               <a
                 href={project.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-lg"
+                className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-2 py-3 bg-background border-t-2 border-foreground font-bold text-sm hover:bg-accent transition-colors"
               >
                 <Icon name="Instagram" className="h-4 w-4" />
-                Смотреть аккаунт
+                Аккаунт
+                <ArrowUpRight className="h-4 w-4" />
               </a>
             )}
           </div>
 
-          {/* Правая часть */}
-          <div className="flex-1 flex flex-col gap-5 pt-2">
+          {/* Инфо */}
+          <div className="p-6 sm:p-8 flex flex-col gap-6">
             <div>
-              <h3 className="text-3xl font-black leading-tight">{project.title}</h3>
-              <p className="text-primary font-semibold text-base mt-1">{project.subtitle}</p>
+              <h3 className="text-3xl font-bold leading-tight">{project.title}</h3>
+              <p className="text-sm font-mono-tag text-muted-foreground mt-1 uppercase tracking-wide">{project.subtitle}</p>
             </div>
 
-            <div className="space-y-3 mt-1">
+            <div className="grid gap-0 border-2 border-foreground">
               {project.stats.map((stat, i) => (
-                <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 border border-border">
-                  <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                  <p className="font-semibold text-base">{stat}</p>
+                <div
+                  key={i}
+                  className={`flex items-center gap-3 p-3 ${i !== project.stats.length - 1 ? "border-b-2 border-foreground" : ""}`}
+                >
+                  <span className="font-mono-tag text-xs px-1.5 py-0.5 bg-accent text-accent-foreground flex-shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="font-semibold text-sm">{stat}</p>
                 </div>
               ))}
             </div>
 
             {project.videos.length > 0 && (
-              <div>
-                <p className="text-sm font-semibold text-muted-foreground mb-2">Примеры роликов</p>
+              <div className="mt-auto">
+                <p className="font-mono-tag text-xs uppercase tracking-wide text-muted-foreground mb-2">Примеры роликов</p>
                 <div className="flex flex-wrap gap-2">
                   {project.videos.map((video, i) => (
                     <a
@@ -151,9 +171,9 @@ export function PortfolioSection() {
                       href={video}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all text-sm font-medium group"
+                      className="flex items-center gap-2 px-3 py-2 border-2 border-foreground hover:bg-accent transition-colors text-sm font-bold"
                     >
-                      <Icon name="Play" className="h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                      <Icon name="Play" className="h-4 w-4" />
                       Ролик {i + 1}
                     </a>
                   ))}
@@ -161,32 +181,6 @@ export function PortfolioSection() {
               </div>
             )}
           </div>
-        </div>
-
-        {/* Навигация */}
-        <div className="flex items-center gap-4 mt-8 justify-center md:justify-start">
-          <button
-            onClick={prev}
-            className="w-12 h-12 rounded-full border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all"
-          >
-            <ChevronLeft className="h-5 w-5 text-primary" />
-          </button>
-          <div className="flex gap-2">
-            {cases.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-primary" : "w-2 bg-primary/30"}`}
-              />
-            ))}
-          </div>
-          <button
-            onClick={next}
-            className="w-12 h-12 rounded-full border-2 border-primary/30 hover:border-primary hover:bg-primary/10 flex items-center justify-center transition-all"
-          >
-            <ChevronRight className="h-5 w-5 text-primary" />
-          </button>
-          <span className="text-sm text-muted-foreground ml-2">{current + 1} / {cases.length}</span>
         </div>
       </div>
     </section>

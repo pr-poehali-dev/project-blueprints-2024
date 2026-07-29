@@ -1,4 +1,3 @@
-import { ThemeToggle } from "@/components/ThemeToggle"
 import { Logo } from "@/components/Logo"
 import { MobileMenu } from "@/components/MobileMenu"
 import { useState, useEffect } from "react"
@@ -17,47 +16,40 @@ export function Navbar() {
   return (
     <nav
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
+        isScrolled ? "bg-background/90 backdrop-blur-md border-b-2 border-foreground" : "bg-transparent border-b-2 border-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <a href="/" className="hover:opacity-80 transition-opacity">
+          <a href="/" className="hover:opacity-70 transition-opacity">
             <Logo />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
-              О нас
+            <a href="#team" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
+              Команда
             </a>
-            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="#services" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
               Услуги
             </a>
-            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">
-              Портфолио
+            <a href="#portfolio" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
+              Кейсы
             </a>
-            <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="#pricing" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
               Тарифы
             </a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="#contact" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
               Контакты
             </a>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <a
-              href="#portfolio"
-              className="hidden sm:inline-flex text-xs font-bold px-3 py-1.5 rounded-full border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+              href="#contact"
+              className="hidden sm:inline-flex items-center text-xs font-bold uppercase tracking-wide px-4 py-2 bg-accent text-accent-foreground hover:bg-foreground hover:text-background transition-colors font-mono-tag"
             >
-              SMM
+              Начать проект
             </a>
-            <a
-              href="#portfolio"
-              className="hidden sm:inline-flex text-xs font-bold px-3 py-1.5 rounded-full border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
-            >
-              REELS
-            </a>
-            <ThemeToggle />
             <MobileMenu />
           </div>
         </div>

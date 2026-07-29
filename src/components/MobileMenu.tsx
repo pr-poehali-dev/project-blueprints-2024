@@ -7,9 +7,9 @@ export function MobileMenu() {
   const [open, setOpen] = useState(false)
 
   const menuItems = [
-    { href: "#about", label: "О нас" },
+    { href: "#team", label: "Команда" },
     { href: "#services", label: "Услуги" },
-    { href: "#portfolio", label: "Портфолио" },
+    { href: "#portfolio", label: "Кейсы" },
     { href: "#pricing", label: "Тарифы" },
     { href: "#contact", label: "Контакты" },
   ]
@@ -22,19 +22,20 @@ export function MobileMenu() {
           <span className="sr-only">Меню</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+      <SheetContent side="right" className="w-[280px] sm:w-[350px] border-l-2 border-foreground">
         <SheetHeader>
-          <SheetTitle>Меню навигации</SheetTitle>
+          <SheetTitle className="font-mono-tag uppercase text-sm tracking-wide">Навигация</SheetTitle>
           <SheetDescription>Переход к разделам сайта</SheetDescription>
         </SheetHeader>
         <nav className="flex flex-col gap-1 mt-8">
-          {menuItems.map((item) => (
+          {menuItems.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="text-base font-medium hover:text-primary hover:bg-primary/5 transition-all py-3 px-4 rounded-lg border-b border-border/50 last:border-b-0"
+              className="flex items-center gap-3 text-lg font-bold hover:text-accent-foreground hover:bg-accent transition-all py-3 px-3 border-b border-border last:border-b-0"
             >
+              <span className="font-mono-tag text-xs text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
               {item.label}
             </a>
           ))}

@@ -1,70 +1,53 @@
 const team = [
   {
+    index: "01",
     name: "Таньшина Татьяна",
     role: "Основатель, маркетолог и телеведущая",
     bio: "Действующая телеведущая канала «Липецкое время» и автор программы «Свое мнение». Татьяна на практике знает, как удерживать внимание зрителя и превращать сухую информацию в контент, который обсуждают.",
     image: "https://cdn.poehali.dev/files/35356dc8-fb3c-4ec9-9a14-0e84f35a9912.png",
-    gradient: "from-rose-950 via-slate-900 to-slate-900",
-    accentColor: "bg-rose-500",
   },
   {
+    index: "02",
     name: "Евгений Володин",
     role: "PR-менеджер · Контент-маркетолог · Продюсер",
     bio: "Больше 5 лет в PR и контент-продюсировании. Прошел путь от пресс-секретаря МЧС до создания комплексных стратегий для бизнеса и экспертов.",
     image: "https://cdn.poehali.dev/files/07fc9a1c-9678-4bda-bcc4-3de0fe1e4cb9.jpeg",
-    gradient: "from-slate-900 via-slate-800 to-slate-900",
-    accentColor: "bg-purple-500",
   },
 ]
 
 export function TeamSection() {
   return (
-    <section id="team" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl" />
-      </div>
-
+    <section id="team" className="py-20 px-4 sm:px-6 lg:px-8 border-b-2 border-foreground">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
+        <div className="flex items-end justify-between mb-12 border-b-2 border-foreground pb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter">
             Команда
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-balance">
-            Люди, которые делают <span className="text-primary">результат</span>
           </h2>
+          <span className="font-mono-tag text-xs uppercase tracking-wide text-muted-foreground hidden sm:block">
+            Люди, которые делают результат
+          </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {team.map((member, i) => (
             <div
               key={i}
-              className={`relative rounded-3xl overflow-hidden bg-gradient-to-br ${member.gradient} shadow-2xl group min-h-[520px] flex flex-col justify-end`}
+              className={`group border-2 border-foreground ${i === 0 ? "md:border-r-0" : ""} p-0 flex flex-col`}
             >
-              {/* Фото */}
-              <div className="absolute inset-0">
+              <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top opacity-60 group-hover:opacity-70 transition-opacity duration-500"
+                  className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+                <span className="absolute top-4 left-4 font-mono-tag text-xs px-2 py-1 bg-background border border-foreground">
+                  {member.index}
+                </span>
               </div>
-
-              {/* Контент */}
-              <div className="relative z-10 p-7 space-y-4">
-                {/* Имя и должность */}
-                <div>
-                  <h3 className="text-2xl font-black text-white leading-tight">{member.name}</h3>
-                  <p className="text-white/60 text-sm font-medium mt-1">{member.role}</p>
-                </div>
-
-                {/* Описание */}
-                <p className="text-white/80 text-sm leading-relaxed">{member.bio}</p>
+              <div className="p-6 border-t-2 border-foreground">
+                <h3 className="text-2xl font-bold leading-tight">{member.name}</h3>
+                <p className="text-sm font-mono-tag text-muted-foreground mt-1 mb-4 uppercase tracking-wide">{member.role}</p>
+                <p className="text-sm text-foreground/80 leading-relaxed">{member.bio}</p>
               </div>
             </div>
           ))}

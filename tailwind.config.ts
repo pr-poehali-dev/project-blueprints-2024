@@ -20,7 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Montserrat', 'system-ui', 'sans-serif'],
+				sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -88,11 +89,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				marquee: {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				marquee: 'marquee 25s linear infinite'
 			}
 		}
 	},
