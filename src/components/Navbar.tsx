@@ -33,7 +33,7 @@ export function Navbar() {
               Услуги
             </a>
             <a href="#portfolio" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
-              Кейсы
+              Клиенты
             </a>
             <a href="#pricing" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
               Тарифы

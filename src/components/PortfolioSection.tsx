@@ -95,7 +95,7 @@ export function PortfolioSection() {
       <div className="container mx-auto max-w-6xl">
         <div className="flex items-end justify-between mb-8 border-b-2 border-foreground pb-4">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter">
-            Кейсы
+            Наши клиенты
           </h2>
           <span className="font-mono-tag text-xs uppercase tracking-wide text-muted-foreground hidden sm:block">
             {String(current + 1).padStart(2, "0")} / {String(cases.length).padStart(2, "0")}
@@ -119,12 +119,12 @@ export function PortfolioSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-[340px_1fr] border-2 border-foreground">
           {/* Фото */}
-          <div className="relative border-b-2 md:border-b-0 md:border-r-2 border-foreground overflow-hidden" style={{ aspectRatio: "4/5" }}>
+          <div className="relative border-b-2 md:border-b-0 md:border-r-2 border-foreground overflow-hidden bg-muted flex items-center justify-center" style={{ minHeight: "480px" }}>
             <img
               key={current}
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-contain"
             />
             {project.instagram && (
               <a

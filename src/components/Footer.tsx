@@ -15,7 +15,7 @@ export function Footer() {
           <nav className="flex flex-wrap gap-x-6 gap-y-2 font-mono-tag text-xs uppercase tracking-wide">
             <a href="#team" className="hover:bg-accent hover:text-accent-foreground px-1 transition-colors">Команда</a>
             <a href="#services" className="hover:bg-accent hover:text-accent-foreground px-1 transition-colors">Услуги</a>
-            <a href="#portfolio" className="hover:bg-accent hover:text-accent-foreground px-1 transition-colors">Кейсы</a>
+            <a href="#portfolio" className="hover:bg-accent hover:text-accent-foreground px-1 transition-colors">Клиенты</a>
             <a href="#pricing" className="hover:bg-accent hover:text-accent-foreground px-1 transition-colors">Тарифы</a>
             <a href="#contact" className="hover:bg-accent hover:text-accent-foreground px-1 transition-colors">Контакты</a>
           </nav>
