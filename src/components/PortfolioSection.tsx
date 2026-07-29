@@ -125,32 +125,32 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        <div className="border-2 border-foreground">
-          <div className="grid grid-cols-1 md:grid-cols-[280px_1fr]">
-            {/* Фото профиля */}
-            <div className="relative border-b-2 md:border-b-0 md:border-r-2 border-foreground overflow-hidden bg-muted flex items-center justify-center">
-              <img
-                key={current}
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-contain"
-              />
-              {project.instagram && (
-                <a
-                  href={project.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-2 py-3 bg-background border-t-2 border-foreground font-bold text-sm hover:bg-accent transition-colors"
-                >
-                  <Icon name="Instagram" className="h-4 w-4" />
-                  Аккаунт
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              )}
-            </div>
+        <div className="border-2 border-foreground grid grid-cols-1 md:grid-cols-[240px_1fr]">
+          {/* Фото профиля */}
+          <div className="relative border-b-2 md:border-b-0 md:border-r-2 border-foreground overflow-hidden bg-muted flex items-center justify-center">
+            <img
+              key={current}
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-contain"
+            />
+            {project.instagram && (
+              <a
+                href={project.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-2 py-3 bg-background border-t-2 border-foreground font-bold text-sm hover:bg-accent transition-colors"
+              >
+                <Icon name="Instagram" className="h-4 w-4" />
+                Аккаунт
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            )}
+          </div>
 
-            {/* Инфо */}
-            <div className="p-6 sm:p-7 flex flex-col gap-5">
+          {/* Инфо + видео рядом */}
+          <div className="p-6 sm:p-7 grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-6">
+            <div className="flex flex-col gap-5">
               <div>
                 <h3 className="text-3xl font-bold leading-tight">{project.title}</h3>
                 <p className="text-sm font-mono-tag text-muted-foreground mt-1 uppercase tracking-wide">{project.subtitle}</p>
@@ -170,12 +170,12 @@ export function PortfolioSection() {
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Слайдер видео — можно смотреть сразу */}
-          {project.videos.length > 0 && (
-            <VideoSlider key={current} videos={project.videos} />
-          )}
+            {/* Слайдер видео — сразу рядом со статистикой */}
+            {project.videos.length > 0 && (
+              <VideoSlider key={current} videos={project.videos} />
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -189,39 +189,37 @@ function VideoSlider({ videos }: { videos: string[] }) {
   const next = () => setIndex((i) => (i + 1) % videos.length)
 
   return (
-    <div className="border-t-2 border-foreground">
-      <div className="flex items-center justify-between px-6 sm:px-7 py-3 border-b-2 border-foreground">
-        <p className="font-mono-tag text-xs uppercase tracking-wide text-muted-foreground">
-          Примеры роликов · {index + 1}/{videos.length}
+    <div className="border-2 border-foreground flex flex-col">
+      <div className="flex items-center justify-between px-3 py-2 border-b-2 border-foreground flex-shrink-0">
+        <p className="font-mono-tag text-[10px] uppercase tracking-wide text-muted-foreground">
+          Ролики · {index + 1}/{videos.length}
         </p>
         {videos.length > 1 && (
-          <div className="flex gap-2">
-            <button onClick={prev} className="w-8 h-8 border-2 border-foreground flex items-center justify-center hover:bg-accent transition-colors">
-              <ChevronLeft className="h-4 w-4" />
+          <div className="flex gap-1">
+            <button onClick={prev} className="w-6 h-6 border-2 border-foreground flex items-center justify-center hover:bg-accent transition-colors">
+              <ChevronLeft className="h-3 w-3" />
             </button>
-            <button onClick={next} className="w-8 h-8 border-2 border-foreground flex items-center justify-center hover:bg-accent transition-colors">
-              <ChevronRight className="h-4 w-4" />
+            <button onClick={next} className="w-6 h-6 border-2 border-foreground flex items-center justify-center hover:bg-accent transition-colors">
+              <ChevronRight className="h-3 w-3" />
             </button>
           </div>
         )}
       </div>
 
-      <div className="overflow-hidden p-6 sm:p-7">
+      <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-300 ease-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {videos.map((video, i) => (
-            <div key={i} className="w-full flex-shrink-0 flex justify-center">
-              <div style={{ width: "280px", aspectRatio: "9/16" }}>
-                <iframe
-                  src={getRutubeEmbedUrl(video)}
-                  title={`Ролик ${i + 1}`}
-                  className="w-full h-full border-0"
-                  allow="clipboard-write; autoplay"
-                  allowFullScreen
-                />
-              </div>
+            <div key={i} className="w-full flex-shrink-0" style={{ aspectRatio: "9/16" }}>
+              <iframe
+                src={getRutubeEmbedUrl(video)}
+                title={`Ролик ${i + 1}`}
+                className="w-full h-full border-0"
+                allow="clipboard-write; autoplay"
+                allowFullScreen
+              />
             </div>
           ))}
         </div>
