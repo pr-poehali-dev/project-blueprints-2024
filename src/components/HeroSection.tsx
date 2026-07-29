@@ -31,22 +31,22 @@ export function HeroSection() {
             Делаем бренды заметными.
           </p>
 
-          <div className="grid md:grid-cols-[1.4fr_1fr] gap-8 items-end">
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-in-up animate-delay-100">
-              Превращаем контент в инструмент роста: больше клиентов, доверия и продаж через соцсети, видео и стратегию.
-            </p>
-
-            <div className="flex flex-wrap gap-3 animate-fade-in-up animate-delay-200 md:justify-end">
-              <Button size="lg" variant="accent" asChild>
-                <a href="#contact">
-                  Обсудить проект
-                  <ArrowRight className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="#portfolio">Наши клиенты</a>
-              </Button>
-            </div>
+          <div className="flex flex-wrap gap-3 animate-fade-in-up animate-delay-200">
+            <Button size="lg" variant="accent" asChild>
+              <a href="#contact">
+                Обсудить проект
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="#portfolio">Наши клиенты</a>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="https://disk.yandex.ru/d/5otqRSgOGtzcew" target="_blank" rel="noopener noreferrer">
+                <Icon name="Play" className="h-5 w-5" />
+                Примеры Reels
+              </a>
+            </Button>
           </div>
         </div>
 
@@ -61,20 +61,6 @@ export function HeroSection() {
             ))}
           </div>
         </div>
-
-        {/* Примеры Reels — выделенный блок */}
-        <a
-          href="https://disk.yandex.ru/d/5otqRSgOGtzcew"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center justify-between gap-4 border-t-2 border-foreground py-5 hover:bg-accent transition-colors"
-        >
-          <div className="flex items-center gap-4">
-            <Icon name="Play" className="h-6 w-6 flex-shrink-0" />
-            <span className="font-bold text-lg sm:text-xl uppercase tracking-tight">Примеры Reels</span>
-          </div>
-          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-        </a>
 
         {/* Контакты */}
         <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t-2 border-foreground py-6 font-mono-tag text-sm">
