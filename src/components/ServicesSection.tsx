@@ -44,9 +44,6 @@ export function ServicesSection() {
           <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-balance">
             Наши <span className="text-primary">услуги</span>
           </h2>
-          <p className="text-muted-foreground text-sm max-w-xl mx-auto">
-            Контент и автоворонки, которые превращают просмотры в заявки
-          </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">

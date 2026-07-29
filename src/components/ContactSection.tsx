@@ -10,12 +10,9 @@ export function ContactSection() {
         <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
           Контакты
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-balance">
           Готовы <span className="text-primary">начать?</span>
         </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-          Напишите нам — ответим в течение часа и договоримся об удобном времени для бесплатного разбора вашего аккаунта.
-        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
           <a
