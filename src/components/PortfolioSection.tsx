@@ -13,7 +13,10 @@ const cases = [
     subtitle: "Здоровье. Детский остеопат",
     image: olgaImage,
     instagram: "https://www.instagram.com/dr.olga_putilina/",
-    videos: ["https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/"],
+    videos: [
+      "https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/",
+      "https://rutube.ru/video/private/7f431f98b9bc28b94e265bc3bc1859d5/?p=7dWQm5gl-F1ILoTltnja4A",
+    ],
     stats: [
       "270 000+ просмотров на самом вирусном рилсе",
       "20 000+ репостов",
@@ -21,10 +24,13 @@ const cases = [
   },
   {
     title: "BIORISE",
-    subtitle: "Бренд",
+    subtitle: "Клиника превентивной и интегративной медицины",
     image: biorseImage,
-    instagram: null,
-    videos: ["https://rutube.ru/shorts/b0ae9ee6a009582688b497a4f2e0d7d2/"],
+    instagram: "https://www.instagram.com/biorise_lipetsk",
+    videos: [
+      "https://rutube.ru/shorts/b0ae9ee6a009582688b497a4f2e0d7d2/",
+      "https://rutube.ru/shorts/05b4d7013e9e13266c44400af5f6c468/",
+    ],
     stats: [
       "500 000+ просмотров на самом вирусном рилсе",
       "35 000+ репостов",
