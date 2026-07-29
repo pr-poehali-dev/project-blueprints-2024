@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import Icon from "@/components/ui/icon"
 import olgaImage from "@/assets/portfolio/olga-putilina.jpg"
 import biorseImage from "@/assets/portfolio/biorise.jpg"
@@ -86,14 +86,6 @@ const cases = [
   },
 ]
 
-function getRutubeEmbedUrl(url: string): string {
-  const idMatch = url.match(/rutube\.ru\/(?:shorts|video(?:\/private)?)\/([a-z0-9]+)/i)
-  const id = idMatch ? idMatch[1] : ""
-  const pMatch = url.match(/[?&]p=([^&]+)/)
-  const p = pMatch ? pMatch[1] : null
-  return `https://rutube.ru/play/embed/${id}${p ? `?p=${p}` : ""}`
-}
-
 export function PortfolioSection() {
   const [current, setCurrent] = useState(0)
   const project = cases[current]
@@ -171,59 +163,31 @@ export function PortfolioSection() {
               </div>
             </div>
 
-            {/* Слайдер видео — сразу рядом со статистикой, вписан в высоту карточки */}
+            {/* Ссылки на примеры роликов */}
             {project.videos.length > 0 && (
-              <VideoSlider key={current} videos={project.videos} />
+              <div className="flex flex-col gap-2">
+                <p className="font-mono-tag text-xs uppercase tracking-wide text-muted-foreground">
+                  Примеры роликов
+                </p>
+                <div className="flex flex-col gap-2">
+                  {project.videos.map((video, i) => (
+                    <a
+                      key={i}
+                      href={video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-2 border-2 border-foreground hover:bg-accent transition-colors text-sm font-bold"
+                    >
+                      <Icon name="Play" className="h-4 w-4" />
+                      Ролик {i + 1}
+                    </a>
+                  ))}
+                </div>
+              </div>
             )}
           </div>
         </div>
       </div>
     </section>
-  )
-}
-
-function VideoSlider({ videos }: { videos: string[] }) {
-  const [index, setIndex] = useState(0)
-
-  const prev = () => setIndex((i) => (i - 1 + videos.length) % videos.length)
-  const next = () => setIndex((i) => (i + 1) % videos.length)
-
-  return (
-    <div className="border-2 border-foreground flex flex-col h-full min-h-0 max-h-[340px] md:max-h-none">
-      <div className="flex items-center justify-between px-3 py-2 border-b-2 border-foreground flex-shrink-0">
-        <p className="font-mono-tag text-[10px] uppercase tracking-wide text-muted-foreground">
-          Ролики · {index + 1}/{videos.length}
-        </p>
-        {videos.length > 1 && (
-          <div className="flex gap-1">
-            <button onClick={prev} className="w-6 h-6 border-2 border-foreground flex items-center justify-center hover:bg-accent transition-colors">
-              <ChevronLeft className="h-3 w-3" />
-            </button>
-            <button onClick={next} className="w-6 h-6 border-2 border-foreground flex items-center justify-center hover:bg-accent transition-colors">
-              <ChevronRight className="h-3 w-3" />
-            </button>
-          </div>
-        )}
-      </div>
-
-      <div className="overflow-hidden flex-1 min-h-0">
-        <div
-          className="flex h-full transition-transform duration-300 ease-out"
-          style={{ transform: `translateX(-${index * 100}%)` }}
-        >
-          {videos.map((video, i) => (
-            <div key={i} className="w-full h-full flex-shrink-0">
-              <iframe
-                src={getRutubeEmbedUrl(video)}
-                title={`Ролик ${i + 1}`}
-                className="w-full h-full border-0"
-                allow="clipboard-write; autoplay"
-                allowFullScreen
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
   )
 }
