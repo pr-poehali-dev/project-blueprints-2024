@@ -6,7 +6,7 @@ import Icon from "@/components/ui/icon"
 const pricingTiers = [
   {
     name: "Стартовый",
-    price: "50 000",
+    price: "70 000",
     period: "/ мес",
     badge: null,
     features: [
@@ -24,7 +24,7 @@ const pricingTiers = [
   },
   {
     name: "Активный рост",
-    price: "70 000",
+    price: "100 000",
     period: "/ мес",
     badge: null,
     features: [
@@ -46,9 +46,8 @@ const pricingTiers = [
   },
   {
     name: "VIP Продвижение",
-    price: "99 000",
-    period: "1-й мес",
-    priceAfter: "120 000",
+    price: "120 000",
+    period: "/ мес",
     badge: "Популярный",
     features: [
       "Анализ конкурентов и разработка SMM-стратегии",
@@ -116,13 +115,8 @@ export function PricingSection() {
                 <CardTitle className="text-2xl mb-1">{tier.name}</CardTitle>
                 <div className="mt-4">
                   <span className="text-4xl font-black">{tier.price}</span>
-                  <span className="text-lg font-normal text-muted-foreground"> ₽ / {tier.period}</span>
+                  <span className="text-lg font-normal text-muted-foreground"> ₽{tier.period}</span>
                 </div>
-                {"priceAfter" in tier && (
-                  <p className="text-sm text-muted-foreground mt-1">
-                    далее — <span className="font-bold text-foreground">{(tier as { priceAfter: string }).priceAfter} ₽ / мес</span>
-                  </p>
-                )}
               </CardHeader>
               <CardContent className="flex flex-col flex-1">
                 <ul className="space-y-2.5 mb-6 flex-1">

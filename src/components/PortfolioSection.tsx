@@ -1,60 +1,71 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Icon from "@/components/ui/icon"
+import olgaImage from "@/assets/portfolio/olga-putilina.jpg"
+import donskoyImage from "@/assets/portfolio/donskoy-par.jpg"
+import priestImage from "@/assets/portfolio/priest.jpg"
+import massageImage from "@/assets/portfolio/massage.jpg"
 
 const cases = [
   {
     title: "Донской пар",
     subtitle: "Строительство домов и бань",
-    description: "Привлекли целевых лидов на строительство через соцсети. Снимали юмористические скетчи для широких охватов и полезный экспертный контент для закрытия возражений.",
-    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/e2f7386f-2718-432d-86ce-c63c7cc38f0f.PNG",
+    description: "Создали аккаунт с нуля в социальных сетях и сделали бренд «Донской пар» узнаваемым.",
+    image: donskoyImage,
+    instagram: "https://www.instagram.com/donskoy_par",
+    videos: [],
     stats: [
-      "1,1 млн просмотров на топовом Reels",
-      "174 тыс. просмотров на экспертном видео",
-      "Стабильный поток лидов на расчет стоимости",
+      "40 рилсов сняли",
+      "1 млн+ просмотров на самом вирусном рилсе",
+      "110+ заявок",
+      "+1400 целевых подписчиков",
     ],
   },
   {
     title: "Ольга Путилина",
     subtitle: "Здоровье. Детский остеопат",
-    description: "Раскачали личный бренд эксперта с нуля. Упаковали сложную медицинскую нишу в короткие понятные Reels для привлечения новой аудитории и записей на прием.",
-    image: "https://cdn.poehali.dev/files/345f5f33-9348-4fc4-86ed-d083f1dc75e8.PNG",
+    description: "Увеличили узнаваемость в Липецке и изменили отношение родителей к остеопатии.",
+    image: olgaImage,
+    instagram: "https://www.instagram.com/dr.olga_putilina/",
+    videos: ["https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/"],
     stats: [
-      "210 тыс. просмотров на одном Reels",
-      "Успешный запуск блога с нуля",
-      "Стабильные охваты целевой аудитории",
+      "270 000+ просмотров на самом вирусном рилсе",
+      "20 000+ репостов",
     ],
   },
   {
-    title: "АГРОштурман",
-    subtitle: "Сельское хозяйство",
-    description: "Улучшили имидж разработчика агроинноваций в соцсетях. Взяли на себя комплексный продакшен: снимали рекламные ролики, длинные выпуски на YouTube и Shorts.",
-    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/cdeeece9-b68d-4da2-ab7d-2d6338d62dfd.jpg",
+    title: "Отец Сергий",
+    subtitle: "Личный бренд священника",
+    description: "Раскрыли личность спикера через короткие видео и увеличили доверие к каналу.",
+    image: priestImage,
+    instagram: "https://www.instagram.com/byriakovsergiy?igsh=MWlnenZqdGFoOGRwMw==",
+    videos: [
+      "https://rutube.ru/shorts/617a3f081e6abe3bc7e19bfb9440ad93/",
+      "https://rutube.ru/shorts/ffa9f08d6923dec40e9f09d991489304/",
+      "https://rutube.ru/shorts/02732e9d612c1d4738f43147ac447624/",
+    ],
     stats: [
-      "932 тыс. просмотров на одном Shorts",
-      "2,4 млн просмотров суммарно",
-      "+3000 целевых подписчиков",
+      "3 рилса сняли",
+      "230 000+ просмотров на самом вирусном рилсе",
+      "35 000+ репостов",
+      "+535 целевых подписчиков",
     ],
   },
   {
     title: "Николай Соловьев",
     subtitle: "Здоровье. Массаж",
-    description: "Повысили узнаваемость эксперта в соцсетях и обеспечили приток новых клиентов. Через понятный контент показали экспертность и наладили конверсию зрителей в записи на сеансы.",
-    image: "https://cdn.poehali.dev/files/8fd5ebf8-331b-4828-b053-cc750c3f4c99.PNG",
-    stats: [
-      "Увеличение узнаваемости личного бренда",
-      "Конверсия просмотров в записи на прием",
-      "1,1 млн просмотров на топовом видео",
+    description: "Сделали по кайфу рилсы, чтобы они набирали просмотры, и повысили узнаваемость массажиста в инфополе.",
+    image: massageImage,
+    instagram: "https://www.instagram.com/kola.solovev/",
+    videos: [
+      "https://rutube.ru/shorts/c663b7c5d19c2f9be7b34dfd84b9c303/",
+      "https://rutube.ru/shorts/8e8d3873fdbb96cf18a442a48e0520db/",
+      "https://rutube.ru/shorts/85ccb4e27411e78454d41b2386c92c56/",
     ],
-  },
-  {
-    title: "Владимир Сургай",
-    subtitle: "Инфобизнес",
-    description: "Настроили генерацию лидов на инфопродукт через контент. Собрали воронку: привлекали трафик через короткие Reels и прогревали аудиторию длинными видео на YouTube.",
-    image: "https://cdn.poehali.dev/projects/349aafd5-d8de-47c6-b2dd-fe211761eba0/bucket/0f05aaf2-e0f7-4ee0-9f83-fadcf39f0945.jpg",
     stats: [
-      "Запуск контентной воронки продаж",
-      "Стабильный поток теплых лидов",
-      "Связка Reels + YouTube для прогрева",
+      "1,1 млн+ просмотров на самом вирусном рилсе",
+      "25 000+ репостов",
+      "5 снятых рилсов",
     ],
   },
 ]
@@ -78,7 +89,7 @@ export function PortfolioSection() {
         </div>
 
         <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-          {/* Левая часть — фото */}
+          {/* Левая часть — фото профиля */}
           <div className="relative w-full md:w-[260px] flex-shrink-0">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl" style={{ aspectRatio: "9/16" }}>
               <img
@@ -88,6 +99,15 @@ export function PortfolioSection() {
                 className="w-full h-full object-cover object-top"
               />
             </div>
+            <a
+              href={project.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-lg"
+            >
+              <Icon name="Instagram" className="h-4 w-4" />
+              Смотреть аккаунт
+            </a>
           </div>
 
           {/* Правая часть */}
@@ -106,6 +126,26 @@ export function PortfolioSection() {
                 </div>
               ))}
             </div>
+
+            {project.videos.length > 0 && (
+              <div>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Примеры роликов</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.videos.map((video, i) => (
+                    <a
+                      key={i}
+                      href={video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all text-sm font-medium group"
+                    >
+                      <Icon name="Play" className="h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                      Ролик {i + 1}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
