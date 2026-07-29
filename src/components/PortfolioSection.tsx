@@ -125,14 +125,14 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        <div className="border-2 border-foreground grid grid-cols-1 md:grid-cols-[240px_1fr]">
+        <div className="border-2 border-foreground grid grid-cols-1 md:grid-cols-[240px_1fr] md:h-[420px]">
           {/* Фото профиля */}
-          <div className="relative border-b-2 md:border-b-0 md:border-r-2 border-foreground overflow-hidden bg-muted flex items-center justify-center">
+          <div className="relative border-b-2 md:border-b-0 md:border-r-2 border-foreground overflow-hidden bg-muted h-[420px] md:h-full">
             <img
               key={current}
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover"
             />
             {project.instagram && (
               <a
@@ -149,7 +149,7 @@ export function PortfolioSection() {
           </div>
 
           {/* Инфо + видео рядом */}
-          <div className="p-6 sm:p-7 grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-6">
+          <div className="p-6 sm:p-7 grid grid-cols-1 lg:grid-cols-[1fr_180px] gap-6 md:h-full md:overflow-hidden">
             <div className="flex flex-col gap-5">
               <div>
                 <h3 className="text-3xl font-bold leading-tight">{project.title}</h3>
@@ -171,7 +171,7 @@ export function PortfolioSection() {
               </div>
             </div>
 
-            {/* Слайдер видео — сразу рядом со статистикой */}
+            {/* Слайдер видео — сразу рядом со статистикой, вписан в высоту карточки */}
             {project.videos.length > 0 && (
               <VideoSlider key={current} videos={project.videos} />
             )}
@@ -189,7 +189,7 @@ function VideoSlider({ videos }: { videos: string[] }) {
   const next = () => setIndex((i) => (i + 1) % videos.length)
 
   return (
-    <div className="border-2 border-foreground flex flex-col">
+    <div className="border-2 border-foreground flex flex-col h-full min-h-0 max-h-[340px] md:max-h-none">
       <div className="flex items-center justify-between px-3 py-2 border-b-2 border-foreground flex-shrink-0">
         <p className="font-mono-tag text-[10px] uppercase tracking-wide text-muted-foreground">
           Ролики · {index + 1}/{videos.length}
@@ -206,13 +206,13 @@ function VideoSlider({ videos }: { videos: string[] }) {
         )}
       </div>
 
-      <div className="overflow-hidden">
+      <div className="overflow-hidden flex-1 min-h-0">
         <div
-          className="flex transition-transform duration-300 ease-out"
+          className="flex h-full transition-transform duration-300 ease-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {videos.map((video, i) => (
-            <div key={i} className="w-full flex-shrink-0" style={{ aspectRatio: "9/16" }}>
+            <div key={i} className="w-full h-full flex-shrink-0">
               <iframe
                 src={getRutubeEmbedUrl(video)}
                 title={`Ролик ${i + 1}`}
