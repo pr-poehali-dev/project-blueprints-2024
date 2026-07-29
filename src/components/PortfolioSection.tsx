@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
 import Icon from "@/components/ui/icon"
 import olgaImage from "@/assets/portfolio/olga-putilina.jpg"
 import biorseImage from "@/assets/portfolio/biorise.jpg"
@@ -86,6 +86,14 @@ const cases = [
   },
 ]
 
+function getRutubeEmbedUrl(url: string): string {
+  const idMatch = url.match(/rutube\.ru\/(?:shorts|video(?:\/private)?)\/([a-z0-9]+)/i)
+  const id = idMatch ? idMatch[1] : ""
+  const pMatch = url.match(/[?&]p=([^&]+)/)
+  const p = pMatch ? pMatch[1] : null
+  return `https://rutube.ru/play/embed/${id}${p ? `?p=${p}` : ""}`
+}
+
 export function PortfolioSection() {
   const [current, setCurrent] = useState(0)
   const project = cases[current]
@@ -117,72 +125,107 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[340px_1fr] border-2 border-foreground">
-          {/* Фото */}
-          <div className="relative border-b-2 md:border-b-0 md:border-r-2 border-foreground overflow-hidden bg-muted flex items-center justify-center" style={{ minHeight: "480px" }}>
-            <img
-              key={current}
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-contain"
-            />
-            {project.instagram && (
-              <a
-                href={project.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-2 py-3 bg-background border-t-2 border-foreground font-bold text-sm hover:bg-accent transition-colors"
-              >
-                <Icon name="Instagram" className="h-4 w-4" />
-                Аккаунт
-                <ArrowUpRight className="h-4 w-4" />
-              </a>
-            )}
-          </div>
-
-          {/* Инфо */}
-          <div className="p-6 sm:p-8 flex flex-col gap-6">
-            <div>
-              <h3 className="text-3xl font-bold leading-tight">{project.title}</h3>
-              <p className="text-sm font-mono-tag text-muted-foreground mt-1 uppercase tracking-wide">{project.subtitle}</p>
-            </div>
-
-            <div className="grid gap-0 border-2 border-foreground">
-              {project.stats.map((stat, i) => (
-                <div
-                  key={i}
-                  className={`flex items-center gap-3 p-3 ${i !== project.stats.length - 1 ? "border-b-2 border-foreground" : ""}`}
+        <div className="border-2 border-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-[280px_1fr]">
+            {/* Фото профиля */}
+            <div className="relative border-b-2 md:border-b-0 md:border-r-2 border-foreground overflow-hidden bg-muted flex items-center justify-center">
+              <img
+                key={current}
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-contain"
+              />
+              {project.instagram && (
+                <a
+                  href={project.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-2 py-3 bg-background border-t-2 border-foreground font-bold text-sm hover:bg-accent transition-colors"
                 >
-                  <span className="font-mono-tag text-xs px-1.5 py-0.5 bg-accent text-accent-foreground flex-shrink-0">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="font-semibold text-sm">{stat}</p>
-                </div>
-              ))}
+                  <Icon name="Instagram" className="h-4 w-4" />
+                  Аккаунт
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              )}
             </div>
 
-            {project.videos.length > 0 && (
-              <div className="mt-auto">
-                <p className="font-mono-tag text-xs uppercase tracking-wide text-muted-foreground mb-2">Примеры роликов</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.videos.map((video, i) => (
-                    <a
-                      key={i}
-                      href={video}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-2 border-2 border-foreground hover:bg-accent transition-colors text-sm font-bold"
-                    >
-                      <Icon name="Play" className="h-4 w-4" />
-                      Ролик {i + 1}
-                    </a>
-                  ))}
-                </div>
+            {/* Инфо */}
+            <div className="p-6 sm:p-7 flex flex-col gap-5">
+              <div>
+                <h3 className="text-3xl font-bold leading-tight">{project.title}</h3>
+                <p className="text-sm font-mono-tag text-muted-foreground mt-1 uppercase tracking-wide">{project.subtitle}</p>
               </div>
-            )}
+
+              <div className="grid gap-0 border-2 border-foreground">
+                {project.stats.map((stat, i) => (
+                  <div
+                    key={i}
+                    className={`flex items-center gap-3 p-3 ${i !== project.stats.length - 1 ? "border-b-2 border-foreground" : ""}`}
+                  >
+                    <span className="font-mono-tag text-xs px-1.5 py-0.5 bg-accent text-accent-foreground flex-shrink-0">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="font-semibold text-sm">{stat}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
+
+          {/* Слайдер видео — можно смотреть сразу */}
+          {project.videos.length > 0 && (
+            <VideoSlider key={current} videos={project.videos} />
+          )}
         </div>
       </div>
     </section>
+  )
+}
+
+function VideoSlider({ videos }: { videos: string[] }) {
+  const [index, setIndex] = useState(0)
+
+  const prev = () => setIndex((i) => (i - 1 + videos.length) % videos.length)
+  const next = () => setIndex((i) => (i + 1) % videos.length)
+
+  return (
+    <div className="border-t-2 border-foreground">
+      <div className="flex items-center justify-between px-6 sm:px-7 py-3 border-b-2 border-foreground">
+        <p className="font-mono-tag text-xs uppercase tracking-wide text-muted-foreground">
+          Примеры роликов · {index + 1}/{videos.length}
+        </p>
+        {videos.length > 1 && (
+          <div className="flex gap-2">
+            <button onClick={prev} className="w-8 h-8 border-2 border-foreground flex items-center justify-center hover:bg-accent transition-colors">
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button onClick={next} className="w-8 h-8 border-2 border-foreground flex items-center justify-center hover:bg-accent transition-colors">
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div className="overflow-hidden p-6 sm:p-7">
+        <div
+          className="flex transition-transform duration-300 ease-out"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {videos.map((video, i) => (
+            <div key={i} className="w-full flex-shrink-0 flex justify-center">
+              <div style={{ width: "280px", aspectRatio: "9/16" }}>
+                <iframe
+                  src={getRutubeEmbedUrl(video)}
+                  title={`Ролик ${i + 1}`}
+                  className="w-full h-full border-0"
+                  allow="clipboard-write; autoplay"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }

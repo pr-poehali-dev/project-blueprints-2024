@@ -29,9 +29,6 @@ export function Navbar() {
             <a href="#team" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
               Команда
             </a>
-            <a href="#services" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
-              Услуги
-            </a>
             <a href="#portfolio" className="text-sm font-mono-tag uppercase tracking-wide hover:text-accent-foreground hover:bg-accent px-1 transition-colors">
               Клиенты
             </a>
