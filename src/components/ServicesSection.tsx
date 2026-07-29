@@ -4,87 +4,103 @@ const services = [
   {
     icon: "LayoutGrid",
     title: "SMM под ключ",
-    desc: "Берем на себя ведение соцсетей. Делаем то, что реально работает на продажи, а не просто пишем посты ради галочки.",
     points: [
-      "Аудит площадок и анализ конкурентов",
-      "Создание визуала и оформление профиля",
-      "Регулярный постинг: тексты, Stories, Reels",
-      "Модерация комментариев и сообщений в Direct",
-      "Аналитика и корректировка плана каждый месяц",
+      "Аудит и анализ конкурентов",
+      "Визуал и оформление профиля",
+      "Reels, Stories, посты",
+      "Модерация комментариев и Direct",
+      "Аналитика каждый месяц",
     ],
+    big: true,
   },
   {
     icon: "Film",
     title: "Продюсирование и режиссирование",
-    desc: "Полностью забираем организацию съёмок. Вам не нужно искать студии, актёров и думать, как поставить кадр.",
     points: [
-      "Разработка креативной концепции",
-      "Поиск и бронирование локаций — от интерьерных студий до строящихся объектов",
-      "Подбор команды и контроль тайминга",
-      "Управление на площадке: ставим задачи и следим за результатом",
+      "Креативная концепция",
+      "Локации под ключ",
+      "Подбор команды",
+      "Контроль на площадке",
     ],
   },
   {
     icon: "Camera",
     title: "Операторская работа",
-    desc: "Делаем чистую коммерческую картинку, которая показывает продукт лицом. Без любительской тряски.",
     points: [
-      "Съёмка Reels, обзоров и имиджевых роликов",
-      "Работа с профессиональным светом и оборудованием",
-      "Поиск лучших ракурсов, будь то салон дверей или жилой комплекс",
+      "Reels, обзоры, имидж-ролики",
+      "Профессиональный свет",
+      "Лучшие ракурсы",
     ],
   },
   {
     icon: "Scissors",
     title: "Монтаж роликов",
-    desc: "Собираем видео так, чтобы его хотелось досмотреть.",
     points: [
-      "Плотный монтаж без лишних пауз",
-      "Цветокоррекция и саунд-дизайн",
-      "Добавление субтитров, плашек и инфографики",
-      "Использование нейросетей для сложной графики",
+      "Плотный монтаж",
+      "Цветокоррекция и звук",
+      "Субтитры и графика",
+      "Монтаж с нейросетями",
     ],
   },
   {
     icon: "Bot",
     title: "Автоворонки и чат-боты",
-    desc: "Настраиваем системы, которые прогревают и продают без участия менеджера.",
     points: [
-      "Разработка логики воронки под ваш бизнес",
-      "Внедрение ботов в Direct для выдачи лид-магнитов и ответов на реакции",
-      "Настройка цепочек сообщений, которые доводят клиента до покупки",
+      "Логика воронки под бизнес",
+      "Боты в Direct",
+      "Цепочки до покупки",
     ],
   },
   {
     icon: "Tv",
     title: "PR, коллаборации и СМИ",
-    desc: "Делаем так, чтобы о вашем бренде говорили за пределами привычного SMM.",
     points: [
-      "Организация партнёрских спецпроектов",
-      "Подбор блогеров для рекламы и кросс-промо",
-      'Публикации в прессе и вывод спикеров в медиа, включая "Липецкое время"',
+      "Партнёрские спецпроекты",
+      "Блогеры и кросс-промо",
+      'Пресса и «Липецкое время»',
     ],
+    big: true,
   },
   {
     icon: "Factory",
-    title: "Создание контент-завода",
-    desc: "Помогаем выстроить производство контента внутри компании, если вы хотите снимать всё сами.",
+    title: "Контент-завод внутри компании",
     points: [
-      "Обучение сотрудников основам съёмки и подачи",
-      "Создание регламентов, гайдов и шаблонов для работы",
-      "Превращение хаоса в понятный процесс — от идеи до публикации",
+      "Обучение сотрудников",
+      "Регламенты и гайды",
+      "Процесс от идеи до публикации",
     ],
   },
   {
     icon: "PenTool",
     title: "Написание сценариев",
-    desc: "Пишем сценарии для видео, которые цепляют с первых секунд и доносят нужные смыслы.",
     points: [
-      "Разработка сильных хуков для удержания внимания",
-      "Раскадровки и сторителлинг",
-      "Адаптация сложной информации в понятный разговорный формат",
+      "Хуки, которые цепляют",
+      "Раскадровка и сторителлинг",
+      "Простой разговорный язык",
     ],
   },
+]
+
+const cardStyles = [
+  "from-violet-500/10 to-violet-500/0 hover:border-violet-500/50",
+  "from-orange-500/10 to-orange-500/0 hover:border-orange-500/50",
+  "from-sky-500/10 to-sky-500/0 hover:border-sky-500/50",
+  "from-emerald-500/10 to-emerald-500/0 hover:border-emerald-500/50",
+  "from-pink-500/10 to-pink-500/0 hover:border-pink-500/50",
+  "from-amber-500/10 to-amber-500/0 hover:border-amber-500/50",
+  "from-blue-500/10 to-blue-500/0 hover:border-blue-500/50",
+  "from-rose-500/10 to-rose-500/0 hover:border-rose-500/50",
+]
+
+const iconStyles = [
+  "text-violet-500 bg-violet-500/10 group-hover:bg-violet-500",
+  "text-orange-500 bg-orange-500/10 group-hover:bg-orange-500",
+  "text-sky-500 bg-sky-500/10 group-hover:bg-sky-500",
+  "text-emerald-500 bg-emerald-500/10 group-hover:bg-emerald-500",
+  "text-pink-500 bg-pink-500/10 group-hover:bg-pink-500",
+  "text-amber-500 bg-amber-500/10 group-hover:bg-amber-500",
+  "text-blue-500 bg-blue-500/10 group-hover:bg-blue-500",
+  "text-rose-500 bg-rose-500/10 group-hover:bg-rose-500",
 ]
 
 export function ServicesSection() {
@@ -106,27 +122,36 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-fr">
           {services.map((s, i) => (
             <div
               key={i}
-              className="p-6 rounded-2xl bg-background border border-border hover:border-primary hover:shadow-xl transition-all duration-300 group flex flex-col gap-4"
+              className={`relative p-6 rounded-3xl bg-gradient-to-br ${cardStyles[i % cardStyles.length]} bg-background border-2 border-border transition-all duration-300 group flex flex-col overflow-hidden ${
+                s.big ? "sm:col-span-2" : ""
+              }`}
             >
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-primary/10 group-hover:bg-primary transition-all duration-300 flex-shrink-0">
-                  <Icon name={s.icon} fallback="Star" className="h-5 w-5 text-primary group-hover:text-primary-foreground" />
-                </div>
-                <h3 className="font-bold text-base leading-tight group-hover:text-primary transition-colors">{s.title}</h3>
+              <span className="absolute -right-3 -top-6 text-8xl font-black text-foreground/[0.04] select-none leading-none">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <div
+                className={`relative w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0 mb-4 transition-all duration-300 ${iconStyles[i % iconStyles.length]}`}
+              >
+                <Icon name={s.icon} fallback="Star" className="h-5 w-5 group-hover:text-white transition-colors" />
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              <ul className="space-y-1.5 mt-auto">
+
+              <h3 className="relative font-black text-lg leading-tight mb-4">{s.title}</h3>
+
+              <div className="relative flex flex-wrap gap-1.5 mt-auto">
                 {s.points.map((point, j) => (
-                  <li key={j} className="flex items-start gap-2 text-sm text-foreground/80">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-1.5" />
+                  <span
+                    key={j}
+                    className="text-xs font-medium px-2.5 py-1 rounded-full bg-muted text-foreground/70 border border-border/60"
+                  >
                     {point}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
