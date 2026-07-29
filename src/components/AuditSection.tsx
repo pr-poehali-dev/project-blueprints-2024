@@ -1,27 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 
-const steps = [
-  {
-    number: "01",
-    icon: "Search",
-    title: "Анализируем текущую ситуацию",
-    desc: "Детально изучаем ваши аккаунты: контент, визуал, охваты, вовлечённость и поведение аудитории. Сравниваем с конкурентами.",
-  },
-  {
-    number: "02",
-    icon: "AlertCircle",
-    title: "Указываем на дыры",
-    desc: "Честно говорим, что сейчас мешает росту: слабые точки в контенте, ошибки в упаковке, упущенные возможности.",
-  },
-  {
-    number: "03",
-    icon: "Map",
-    title: "Даём пошаговый план стратегии",
-    desc: "Предлагаем конкретный план действий, который позволит увеличить продажи и узнаваемость бренда в соцсетях.",
-  },
-]
-
 export function AuditSection() {
   return (
     <section id="audit" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -40,32 +19,6 @@ export function AuditSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-balance">
             Стратегический разбор <span className="text-primary">вашего аккаунта</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Формат — живая встреча или созвон с продюсером. Без шаблонов и воды: только конкретика под ваш бизнес.
-          </p>
-        </div>
-
-        {/* Шаги */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className="relative p-6 rounded-2xl bg-background border border-border hover:border-primary hover:shadow-xl transition-all duration-300 group"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-2xl bg-primary/10 group-hover:bg-primary transition-all duration-300 flex items-center justify-center">
-                    <Icon name={step.icon} fallback="Star" className="h-5 w-5 text-primary group-hover:text-primary-foreground" />
-                  </div>
-                </div>
-                <div>
-                  <p className="text-xs font-black text-primary/40 mb-1 tracking-widest">{step.number}</p>
-                  <h3 className="font-bold text-base mb-2 group-hover:text-primary transition-colors leading-tight">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
 
         {/* CTA */}

@@ -8,6 +8,18 @@ import massageImage from "@/assets/portfolio/massage.jpg"
 
 const cases = [
   {
+    title: "Ольга Путилина",
+    subtitle: "Здоровье. Детский остеопат",
+    description: "Увеличили узнаваемость в Липецке и изменили отношение родителей к остеопатии.",
+    image: olgaImage,
+    instagram: "https://www.instagram.com/dr.olga_putilina/",
+    videos: ["https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/"],
+    stats: [
+      "270 000+ просмотров на самом вирусном рилсе",
+      "20 000+ репостов",
+    ],
+  },
+  {
     title: "Донской пар",
     subtitle: "Строительство домов и бань",
     description: "Создали аккаунт с нуля в социальных сетях и сделали бренд «Донской пар» узнаваемым.",
@@ -19,18 +31,6 @@ const cases = [
       "1 млн+ просмотров на самом вирусном рилсе",
       "110+ заявок",
       "+1400 целевых подписчиков",
-    ],
-  },
-  {
-    title: "Ольга Путилина",
-    subtitle: "Здоровье. Детский остеопат",
-    description: "Увеличили узнаваемость в Липецке и изменили отношение родителей к остеопатии.",
-    image: olgaImage,
-    instagram: "https://www.instagram.com/dr.olga_putilina/",
-    videos: ["https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/"],
-    stats: [
-      "270 000+ просмотров на самом вирусном рилсе",
-      "20 000+ репостов",
     ],
   },
   {
@@ -83,9 +83,6 @@ export function PortfolioSection() {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-balance">Наши кейсы</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Реальные результаты для реальных брендов. Цифры говорят сами за себя.
-          </p>
         </div>
 
         <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">

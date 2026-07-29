@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Icon from "@/components/ui/icon"
 
 const pricingTiers = [
   {
@@ -52,7 +51,7 @@ const pricingTiers = [
     features: [
       "Анализ конкурентов и разработка SMM-стратегии",
       "Контент-план на месяц",
-      "15 Reels (Съёмка строго на проф. камеру)",
+      "15 Reels (Съёмка на айфон / проф. камеру)",
       "Минимум 8 постов и 45 историй",
       "Продюсирование съёмок «под ключ»",
       "Написание сценариев",
@@ -139,23 +138,6 @@ export function PricingSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="mt-12 p-6 rounded-2xl bg-muted/40 text-center">
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <Icon name="Shield" fallback="Star" className="h-4 w-4 text-primary" />
-              <span>Бесплатный аудит перед стартом</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Icon name="RefreshCw" fallback="Star" className="h-4 w-4 text-primary" />
-              <span>Ежемесячная актуализация стратегии</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Icon name="MessageCircle" fallback="Star" className="h-4 w-4 text-primary" />
-              <span>Персональный менеджер проекта</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
