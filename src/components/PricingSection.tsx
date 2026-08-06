@@ -1,10 +1,14 @@
-import { Check } from "lucide-react"
+import { Check, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const pricingTiers = [
   {
     name: "Базовый",
-    tagline: "Стабильный контент по проверенной системе",
+    tags: [
+      { label: "Понятные сценарии", example: "https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/" },
+      { label: "Чистый монтаж", example: "https://rutube.ru/shorts/b0ae9ee6a009582688b497a4f2e0d7d2/" },
+      { label: "Съёмка по системе", example: "https://rutube.ru/shorts/c663b7c5d19c2f9be7b34dfd84b9c303/" },
+    ],
     price: "100 000",
     period: "/ мес",
     badge: null,
@@ -25,7 +29,11 @@ const pricingTiers = [
   },
   {
     name: "Креативный",
-    tagline: "Для тех, кто хочет выделяться, а не сливаться с лентой",
+    tags: [
+      { label: "Креативные сценарии", example: "https://rutube.ru/shorts/fd0edd196b670e7ae99c033aa265b894/" },
+      { label: "Сложный монтаж", example: "https://rutube.ru/shorts/617a3f081e6abe3bc7e19bfb9440ad93/" },
+      { label: "Продюсерские съёмки", example: "https://rutube.ru/shorts/33a1c2f9542daa338093cc3889ac5f5f/" },
+    ],
     price: "150 000",
     period: "/ мес",
     badge: "Не как у всех",
@@ -78,10 +86,26 @@ export function PricingSection() {
                 </span>
               )}
 
-              <h3 className="text-2xl sm:text-3xl font-bold mb-1.5">{tier.name}</h3>
-              <p className={`text-sm mb-6 leading-snug ${tier.highlighted ? "text-background/70" : "text-muted-foreground"}`}>
-                {tier.tagline}
-              </p>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3">{tier.name}</h3>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {tier.tags.map((tag, i) => (
+                  <a
+                    key={i}
+                    href={tag.example}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group inline-flex items-center gap-1.5 px-2.5 py-1.5 border-2 font-mono-tag text-[11px] uppercase tracking-wide transition-colors ${
+                      tier.highlighted
+                        ? "border-background/40 hover:bg-accent hover:text-accent-foreground hover:border-accent"
+                        : "border-foreground hover:bg-foreground hover:text-background"
+                    }`}
+                  >
+                    <Play className="h-3 w-3 flex-shrink-0" />
+                    {tag.label}
+                  </a>
+                ))}
+              </div>
 
               <div className="mb-6">
                 <span className="text-4xl font-bold tracking-tighter">{tier.price}</span>
