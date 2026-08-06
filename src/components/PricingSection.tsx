@@ -5,8 +5,8 @@ const pricingTiers = [
   {
     name: "Базовый",
     accent: null,
-    note: "Системный контент, который стабильно работает на охваты и заявки.",
-    examplesUrl: "https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/",
+    note: null,
+    examplesUrl: "https://disk.yandex.ru/d/enAr4VRJ27tHFw",
     price: "100 000",
     period: "/ мес",
     badge: null,
@@ -28,8 +28,8 @@ const pricingTiers = [
   {
     name: "Креативный",
     accent: "не как у всех",
-    note: "Именно за этим к нам приходят чаще всего: нестандартные идеи, продюсерские съёмки и монтаж, которые невозможно повторить шаблоном.",
-    examplesUrl: "https://rutube.ru/shorts/fd0edd196b670e7ae99c033aa265b894/",
+    note: null,
+    examplesUrl: "https://disk.yandex.ru/d/Ov9ujdNN5Rwfvg",
     price: "150 000",
     period: "/ мес",
     badge: null,
@@ -76,7 +76,7 @@ export function PricingSection() {
                 index !== 0 ? "border-t-2 md:border-t-0 border-foreground" : ""
               } ${tier.highlighted ? "bg-foreground text-background" : ""}`}
             >
-              <div className="md:min-h-[176px]">
+              <div className="md:min-h-[92px]">
                 <h3 className="text-3xl sm:text-4xl font-bold leading-none tracking-tighter">
                   {tier.name}
                 </h3>
