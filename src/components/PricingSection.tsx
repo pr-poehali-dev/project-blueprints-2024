@@ -4,11 +4,8 @@ import { Button } from "@/components/ui/button"
 const pricingTiers = [
   {
     name: "Базовый",
-    tags: [
-      { label: "Понятные сценарии", example: "https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/" },
-      { label: "Чистый монтаж", example: "https://rutube.ru/shorts/b0ae9ee6a009582688b497a4f2e0d7d2/" },
-      { label: "Съёмка по системе", example: "https://rutube.ru/shorts/c663b7c5d19c2f9be7b34dfd84b9c303/" },
-    ],
+    accent: null,
+    examplesUrl: "https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/",
     price: "100 000",
     period: "/ мес",
     badge: null,
@@ -29,14 +26,11 @@ const pricingTiers = [
   },
   {
     name: "Креативный",
-    tags: [
-      { label: "Креативные сценарии", example: "https://rutube.ru/shorts/fd0edd196b670e7ae99c033aa265b894/" },
-      { label: "Сложный монтаж", example: "https://rutube.ru/shorts/617a3f081e6abe3bc7e19bfb9440ad93/" },
-      { label: "Продюсерские съёмки", example: "https://rutube.ru/shorts/33a1c2f9542daa338093cc3889ac5f5f/" },
-    ],
+    accent: "(не как у всех)",
+    examplesUrl: "https://rutube.ru/shorts/fd0edd196b670e7ae99c033aa265b894/",
     price: "150 000",
     period: "/ мес",
-    badge: "Не как у всех",
+    badge: null,
     features: [
       "Анализ конкурентов и разработка SMM-стратегии",
       "Контент-план на месяц",
@@ -80,34 +74,18 @@ export function PricingSection() {
                 index !== 0 ? "border-t-2 md:border-t-0 border-foreground" : ""
               } ${tier.highlighted ? "bg-foreground text-background" : ""}`}
             >
-              {tier.badge && (
-                <span className="absolute top-0 right-0 font-mono-tag text-[10px] uppercase tracking-wide px-2.5 py-1.5 bg-accent text-accent-foreground">
-                  ✦ {tier.badge}
-                </span>
-              )}
-
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3">{tier.name}</h3>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {tier.tags.map((tag, i) => (
-                  <a
-                    key={i}
-                    href={tag.example}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group inline-flex items-center gap-1.5 px-2.5 py-1.5 border-2 font-mono-tag text-[11px] uppercase tracking-wide transition-colors ${
-                      tier.highlighted
-                        ? "border-background/40 hover:bg-accent hover:text-accent-foreground hover:border-accent"
-                        : "border-foreground hover:bg-foreground hover:text-background"
-                    }`}
-                  >
-                    <Play className="h-3 w-3 flex-shrink-0" />
-                    {tag.label}
-                  </a>
-                ))}
+              <div className="min-h-[76px]">
+                <h3 className="text-3xl sm:text-4xl font-bold leading-none tracking-tighter">
+                  {tier.name}
+                </h3>
+                {tier.accent && (
+                  <span className="mt-2 inline-block text-lg sm:text-xl font-bold text-accent">
+                    {tier.accent}
+                  </span>
+                )}
               </div>
 
-              <div className="mb-6">
+              <div className="mt-3 mb-6">
                 <span className="text-4xl font-bold tracking-tighter">{tier.price}</span>
                 <span className={`text-sm ml-1 ${tier.highlighted ? "text-background/60" : "text-muted-foreground"}`}>
                   ₽{tier.period}
@@ -122,6 +100,20 @@ export function PricingSection() {
                   </li>
                 ))}
               </ul>
+
+              <a
+                href={tier.examplesUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mb-3 flex items-center justify-center gap-2.5 w-full py-4 border-2 font-bold text-base uppercase tracking-wide transition-colors ${
+                  tier.highlighted
+                    ? "border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                    : "border-foreground hover:bg-foreground hover:text-background"
+                }`}
+              >
+                <Play className="h-5 w-5 flex-shrink-0 fill-current" />
+                Посмотреть примеры
+              </a>
 
               <Button
                 variant={tier.highlighted ? "accent" : "outline"}
