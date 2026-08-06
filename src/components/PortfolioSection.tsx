@@ -40,7 +40,7 @@ const cases = [
   },
   {
     title: "ЖК «Авторский»",
-    subtitle: "Жилой комплекс бизнес-класса",
+    subtitle: "Застройщик. Жилой комплекс бизнес-класса",
     image: avtorskiiImage,
     instagram: "https://www.instagram.com/avtorskii48/",
     videos: [
@@ -48,7 +48,9 @@ const cases = [
       "https://rutube.ru/shorts/cd163b034744998b56dd5d543f2906d7/",
       "https://rutube.ru/shorts/e0158cb1c3ebc9b4730959588e25eaa1/",
     ],
-    stats: [],
+    stats: [
+      "35 000+ просмотров на самом вирусном рилсе",
+    ],
   },
   {
     title: "Донской пар",
@@ -105,6 +107,8 @@ const cases = [
     instagram: "https://www.instagram.com/_merkulovaangela_/",
     videos: [
       "https://rutube.ru/shorts/c520a9b26f1de9985e288c650356886a/",
+      "https://rutube.ru/shorts/d8602fd7b111d3246fe2afebc1f679dc/",
+      "https://rutube.ru/shorts/2aa42cccc90b6658b4531a77eb4c29f3/",
     ],
     stats: [
       "75 000+ просмотров на одном ролике",
