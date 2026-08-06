@@ -1,10 +1,11 @@
-import { Check, Play } from "lucide-react"
+import { Check, Play, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const pricingTiers = [
   {
     name: "Базовый",
     accent: null,
+    note: "Системный контент, который стабильно работает на охваты и заявки.",
     examplesUrl: "https://rutube.ru/shorts/376ee44caea82478be5e7f5fe29fa445/",
     price: "100 000",
     period: "/ мес",
@@ -26,7 +27,8 @@ const pricingTiers = [
   },
   {
     name: "Креативный",
-    accent: "(не как у всех)",
+    accent: "не как у всех",
+    note: "Именно за этим к нам приходят чаще всего: нестандартные идеи, продюсерские съёмки и монтаж, которые невозможно повторить шаблоном.",
     examplesUrl: "https://rutube.ru/shorts/fd0edd196b670e7ae99c033aa265b894/",
     price: "150 000",
     period: "/ мес",
@@ -74,14 +76,20 @@ export function PricingSection() {
                 index !== 0 ? "border-t-2 md:border-t-0 border-foreground" : ""
               } ${tier.highlighted ? "bg-foreground text-background" : ""}`}
             >
-              <div className="min-h-[76px]">
+              <div className="md:min-h-[176px]">
                 <h3 className="text-3xl sm:text-4xl font-bold leading-none tracking-tighter">
                   {tier.name}
                 </h3>
                 {tier.accent && (
-                  <span className="mt-2 inline-block text-lg sm:text-xl font-bold text-accent">
+                  <span className="mt-3 inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-3 py-1.5 text-base sm:text-lg font-bold -rotate-2 shadow-[3px_3px_0_0_hsl(var(--background))]">
+                    <Sparkles className="h-4 w-4 flex-shrink-0" />
                     {tier.accent}
                   </span>
+                )}
+                {tier.note && (
+                  <p className={`mt-3 text-sm leading-snug ${tier.highlighted ? "text-background/70" : "text-muted-foreground"}`}>
+                    {tier.note}
+                  </p>
                 )}
               </div>
 
