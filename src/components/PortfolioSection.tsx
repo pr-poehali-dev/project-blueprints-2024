@@ -6,6 +6,8 @@ import biorseImage from "@/assets/portfolio/biorise.jpg"
 import donskoyImage from "@/assets/portfolio/donskoy-par.jpg"
 import priestImage from "@/assets/portfolio/priest.jpg"
 import massageImage from "@/assets/portfolio/massage.jpg"
+import avtorskiiImage from "@/assets/portfolio/avtorskii-zhk.jpg"
+import angelaImage from "@/assets/portfolio/angela-merkulova.jpg"
 
 const cases = [
   {
@@ -35,6 +37,18 @@ const cases = [
       "500 000+ просмотров на самом вирусном рилсе",
       "35 000+ репостов",
     ],
+  },
+  {
+    title: "ЖК «Авторский»",
+    subtitle: "Жилой комплекс бизнес-класса",
+    image: avtorskiiImage,
+    instagram: "https://www.instagram.com/avtorskii48/",
+    videos: [
+      "https://rutube.ru/shorts/c37b54d3879c02a77963262da32fba0c/",
+      "https://rutube.ru/shorts/cd163b034744998b56dd5d543f2906d7/",
+      "https://rutube.ru/shorts/e0158cb1c3ebc9b4730959588e25eaa1/",
+    ],
+    stats: [],
   },
   {
     title: "Донской пар",
@@ -82,6 +96,18 @@ const cases = [
       "1,1 млн+ просмотров на самом вирусном рилсе",
       "25 000+ репостов",
       "5 снятых рилсов",
+    ],
+  },
+  {
+    title: "Анжелика Меркулова",
+    subtitle: "Психолог",
+    image: angelaImage,
+    instagram: "https://www.instagram.com/_merkulovaangela_/",
+    videos: [
+      "https://rutube.ru/shorts/c520a9b26f1de9985e288c650356886a/",
+    ],
+    stats: [
+      "75 000+ просмотров на одном ролике",
     ],
   },
 ]
@@ -148,6 +174,7 @@ export function PortfolioSection() {
                 <p className="text-sm font-mono-tag text-muted-foreground mt-1 uppercase tracking-wide">{project.subtitle}</p>
               </div>
 
+              {project.stats.length > 0 && (
               <div className="grid gap-0 border-2 border-foreground">
                 {project.stats.map((stat, i) => (
                   <div
@@ -161,6 +188,7 @@ export function PortfolioSection() {
                   </div>
                 ))}
               </div>
+              )}
             </div>
 
             {/* Ссылки на примеры роликов */}
