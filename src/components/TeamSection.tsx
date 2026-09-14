@@ -6,13 +6,6 @@ const team = [
     bio: "Действующая телеведущая канала «Липецкое время» и автор программы «Свое мнение». Татьяна на практике знает, как удерживать внимание зрителя и превращать сухую информацию в контент, который обсуждают.",
     image: "https://cdn.poehali.dev/files/35356dc8-fb3c-4ec9-9a14-0e84f35a9912.png",
   },
-  {
-    index: "02",
-    name: "Евгений Володин",
-    role: "PR-менеджер · Контент-маркетолог · Продюсер",
-    bio: "Больше 5 лет в PR и контент-продюсировании. Прошел путь от пресс-секретаря МЧС до создания комплексных стратегий для бизнеса и экспертов.",
-    image: "https://cdn.poehali.dev/files/07fc9a1c-9678-4bda-bcc4-3de0fe1e4cb9.jpeg",
-  },
 ]
 
 export function TeamSection() {
@@ -28,11 +21,11 @@ export function TeamSection() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 max-w-md mx-auto">
           {team.map((member, i) => (
             <div
               key={i}
-              className={`group border-2 border-foreground ${i === 0 ? "md:border-r-0" : ""} p-0 flex flex-col`}
+              className="group border-2 border-foreground p-0 flex flex-col"
             >
               <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
                 <img
