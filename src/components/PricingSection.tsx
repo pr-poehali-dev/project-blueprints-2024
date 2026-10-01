@@ -7,17 +7,17 @@ const pricingTiers = [
     accent: null,
     note: null,
     examplesUrl: "https://disk.yandex.ru/d/enAr4VRJ27tHFw",
-    price: "100 000",
+    oldPrice: "100 000",
+    price: "70 000",
     period: "/ мес",
     badge: null,
     features: [
       "Анализ конкурентов и разработка SMM-стратегии",
       "Контент-план на месяц",
       "10 Reels (Съёмка на телефон)",
-      "Минимум 6 постов и 30 историй",
+      "Минимум 10 постов и 30 историй",
       "Продюсирование съёмок «под ключ»",
       "Написание сценариев",
-      "Фотосъёмка контента",
       "Создание обложек для Reels",
       "Кросспостинг",
       "Ответы на комментарии и в личных сообщениях",
@@ -30,6 +30,7 @@ const pricingTiers = [
     accent: "не как у всех",
     note: null,
     examplesUrl: "https://disk.yandex.ru/d/Ov9ujdNN5Rwfvg",
+    oldPrice: null,
     price: "150 000",
     period: "/ мес",
     badge: null,
@@ -94,6 +95,11 @@ export function PricingSection() {
               </div>
 
               <div className="mt-3 mb-6">
+                {tier.oldPrice && (
+                  <span className="text-2xl font-bold tracking-tighter line-through text-muted-foreground mr-3">
+                    {tier.oldPrice}
+                  </span>
+                )}
                 <span className="text-4xl font-bold tracking-tighter">{tier.price}</span>
                 <span className={`text-sm ml-1 ${tier.highlighted ? "text-background/60" : "text-muted-foreground"}`}>
                   ₽{tier.period}
